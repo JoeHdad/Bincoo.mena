@@ -1,0 +1,50 @@
+# Deploys the site on every push to main.
+# GitHub asks cPanel (over its HTTPS API) to pull the latest commit into the
+# cPanel-managed clone of this repo, then to run the .cpanel.yml deployment,
+# which copies the live files into public_html.
+# Required repository secret: CPANEL_TOKEN (a cPanel API token for the bincoomena account).
+name: Deploy to bincoo-mena.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  CPANEL_HOST: https://server.cuptime.co:2083
+  CPANEL_USER: bincoomena
+  REPO_ROOT: /home/bincoomena/repositories/Bincoo.mena
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull latest commit into cPanel
+        env:
+          TOKEN: ${{ secrets.CPANEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl -fsS -G "$CPANEL_HOST/execute/VersionControl/update" \
+            -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
+            --data-urlencode "repository_root=$REPO_ROOT" \
+            --data-urlencode "branch=main" -o pull.json
+          python3 -c "import json,sys; r=json.load(open('pull.json')); print('pull:', 'ok' if r.get('status') else r.get('errors')); sys.exit(0 if r.get('status') else 1)"
+
+      - name: Deploy to public_html
+        env:
+          TOKEN: ${{ secrets.CPANEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl -fsS -G "$CPANEL_HOST/execute/VersionControlDeployment/create" \
+            -H "Authorization: cpanel $CPANEL_USER:$TOKEN" \
+            --data-urlencode "repository_root=$REPO_ROOT" -o deploy.json
+          python3 -c "import json,sys; r=json.load(open('deploy.json')); print('deploy:', 'queued' if r.get('status') else r.get('errors')); sys.exit(0 if r.get('status') else 1)"
+
+      - name: Check the live site
+        run: |
+          sleep 20
+          curl -fsS -o /dev/null -w "https://bincoo-mena.com -> %{http_code}\n" https://bincoo-mena.com/

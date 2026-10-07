@@ -1,0 +1,9 @@
+---
+# cPanel » Git Version Control » "Deploy HEAD Commit" copies the live files into public_html.
+# cPanel account: bincoomena
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/bincoomena/public_html/
+    - /bin/cp -R index.html 404.html .htaccess robots.txt sitemap.xml site.webmanifest $DEPLOYPATH
+    - /bin/cp -R favicon.svg favicon-32.png apple-touch-icon.png icon-192.png icon-512.png $DEPLOYPATH
+    - /bin/cp -R assets products $DEPLOYPATH
