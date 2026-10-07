@@ -332,7 +332,7 @@ def home():
                   ("Delivery &amp; set-up", "We coordinate delivery to your business and help your team get brewing.")]
     steps = "".join(f'<div class="step" data-reveal><span class="step__n">0{k+1}</span><h3>{t}</h3><p>{d}</p></div>' for k, (t, d) in enumerate(steps_data))
 
-    faqs = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA is business-to-business only. We work with companies &mdash; caf&eacute;s, roasteries, hotels, restaurants, offices, retailers and distributors."),
+    faqs = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates exclusively through authorized distributors. We do not sell directly to individuals or end customers. All purchases should be made through our official distributors in each market."),
             ("How do I get pricing?", "Send us an inquiry using the form, WhatsApp or email. Prices on this site are retail references in USD; trade pricing depends on your quantities and market, and we&rsquo;ll send you a tailored quotation."),
             ("Which countries do you serve?", "We serve businesses across the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll confirm availability and lead times."),
             ("Is there a minimum order quantity?", "Minimums depend on the product and your market. Share your estimated quantities in your inquiry and we&rsquo;ll advise."),
