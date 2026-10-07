@@ -51,15 +51,15 @@ PRODUCTS = [
  dict(slug="s2-pro-trailblazer", value="s2-pro", name="S2 Pro Trailblazer", title_html="S2 Pro <em>Trailblazer</em>",
       full="Bincoo S2 Pro Trailblazer Smart Espresso Machine", cat="Smart Espresso Machine", tag="Flagship",
       card_desc="Dual-boiler espresso with a 3.4&Prime; touch screen, Bluetooth app control and 3&ndash;12 bar pressure profiling.",
-      price="$2,170.33", main="s2-black", alt="s2-white"),
+      price="$2,200", main="s2-black", alt="s2-white"),
  dict(slug="automatic-pour-over", value="pour-over", name="Automatic Pour-Over", title_html="Automatic <em>Pour-Over</em>",
       full="Bincoo Fully Automatic Smart Pour-Over Coffee Machine", cat="Grind &amp; Brew Pour-Over", tag="Grind &amp; Brew",
       card_desc="Grinds, blooms and pours on its own &mdash; barista-quality pour-over in about three minutes.",
-      price="$1,096.15", main="po-black", alt="po-white"),
+      price="$1,100", main="po-black", alt="po-white"),
  dict(slug="composer-po01", value="composer-po01", name="Composer PO01", title_html="Composer <em>PO01</em>",
       full="Bincoo Composer PO01 Automatic Pour-Over Coffee Maker", cat="Automatic Pour-Over Brewer", tag="Compact",
       card_desc="Pro pour techniques, automated &mdash; PID heating from 40&ndash;95&nbsp;&deg;C and six brewing modes.",
-      price="$631.87", main="cp-black", alt=None),
+      price="$650", main="cp-black", alt=None),
 ]
 BY_SLUG = {p["slug"]: p for p in PRODUCTS}
 
@@ -571,7 +571,7 @@ PDP = {
             ("s2-life-steam", "cover", "S2 Pro steam in action"), ("s2-app", "cover", "Touch screen and mobile app control"),
             ("s2-cutaway", "cover", "Thermal group head cutaway"), ("s2-life-grinder", "cover", "S2 Pro with grinder at home")],
     colors=[("Black", "s2-black"), ("White", "s2-white")],
-    configs=[("Machine only", "$2,170.33", None), ("Machine + DM02 grinder", "On request", "s2-bundle-{color}")],
+    configs=[("Machine only", "$2,200", None), ("Machine + DM02 grinder", "On request", "s2-bundle-{color}")],
     keyfacts=[("Control", "3.4&Prime; touch screen + app"), ("Pressure", "3&ndash;12 bar, adjustable"), ("Group head", "58 mm thermal"), ("Boilers", "Triple pumps, dual instant")],
     features=[
       ("s2-app", "Dual control. <em>True intelligence.</em>", "A 3.4-inch HD touch screen plus a direct Bluetooth connection to the Bincoo app. Set mode, temperature, water volume and pressure with a slide of the finger &mdash; every parameter at a glance.",
