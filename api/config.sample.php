@@ -5,11 +5,8 @@
 return array(
     'openrouter_key' => 'PASTE-YOUR-OPENROUTER-KEY-HERE',
 
-    // Free models, tried in order. To upgrade later, e.g. 'anthropic/claude-haiku-5.5'.
-    'models' => array(
-        'google/gemma-4-31b-it:free',
-        'google/gemma-4-26b-a4b-it:free',
-    ),
+    // Optional: models tried in order. Default is Gemini 2.5 Flash, then a free Gemma model.
+    // 'models' => array('google/gemini-2.5-flash', 'google/gemma-4-31b-it:free'),
 
     // Where contact requests from the chat are emailed.
     'lead_email' => 'bincoo@kuvani.com',

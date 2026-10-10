@@ -57,8 +57,8 @@ $payload = array(
     'messages'    => array_merge(array(array('role' => 'system', 'content' => $system)), $messages),
     'max_tokens'  => 700,
     'temperature' => 0.3,
-    // Keep any model reasoning out of the reply text.
-    'reasoning'   => array('exclude' => true),
+    // No hidden "thinking": faster, cheaper replies, and nothing leaks into the reply text.
+    'reasoning'   => array('enabled' => false, 'exclude' => true),
 );
 
 $ch = curl_init('https://openrouter.ai/api/v1/chat/completions');

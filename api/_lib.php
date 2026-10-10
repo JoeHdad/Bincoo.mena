@@ -18,9 +18,9 @@ function bm_config()
     }
     $defaults = array(
         'openrouter_key' => '',
-        // Two chat models from the same family, so tone and format stay consistent on fallback.
+        // Gemini 2.5 Flash (low cost, needs OpenRouter credits), then a free model if it fails.
         // Avoid 'openrouter/free': it can route to classifier or reasoning-dump models.
-        'models'         => array('google/gemma-4-31b-it:free', 'google/gemma-4-26b-a4b-it:free'),
+        'models'         => array('google/gemini-2.5-flash', 'google/gemma-4-31b-it:free'),
         'lead_email'     => 'bincoo@kuvani.com',
         'from_email'     => 'noreply@bincoo-mena.com',
         'allowed_hosts'  => array('bincoo-mena.com', 'www.bincoo-mena.com'),
