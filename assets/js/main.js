@@ -292,20 +292,20 @@ const CONFIG = {
   const waLink = (text) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
   const mailLink = (subject, body) => `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const quoteText = (product) =>
-    `Hello Bincoo MENA team,\n\nWe are a business interested in a trade quotation for:\n• ${product}\n\nPlease share pricing, availability and lead times.\n\nCompany: \nCountry: \nEstimated quantity: `;
+    `Hello Bincoo MENA team,\n\nI'm interested in:\n• ${product}\n\nCould you connect me with the authorized distributor in my country?\n\nName: \nCompany: \nCountry: `;
 
   // Generic "quote" links (product cards, CTAs)
   $$("[data-wa]").forEach((a) => {
     const product = a.dataset.wa;
-    a.href = waLink(product ? quoteText(product) : "Hello Bincoo MENA team, we are a business and would like to discuss a trade account.");
+    a.href = waLink(product ? quoteText(product) : "Hello Bincoo MENA team, I'd like to find the authorized Bincoo distributor in my country.");
     a.target = "_blank";
     a.rel = "noopener";
   });
   $$("[data-mail]").forEach((a) => {
     const product = a.dataset.mail;
     a.href = product
-      ? mailLink(`Trade quotation request — ${product}`, quoteText(product))
-      : mailLink("Trade enquiry — Bincoo MENA", "Hello Bincoo MENA team,\n\nWe are a business and would like to discuss a trade account.\n\nCompany: \nCountry: ");
+      ? mailLink(`Enquiry — ${product}`, quoteText(product))
+      : mailLink("Enquiry — Bincoo MENA", "Hello Bincoo MENA team,\n\nI'd like to find the authorized Bincoo distributor in my country, or discuss becoming one.\n\nName: \nCompany: \nCountry: ");
   });
 
   /* ---------- Product page: gallery, options, lightbox ---------- */
@@ -368,7 +368,7 @@ const CONFIG = {
       const parts = [state.color, state.config].filter(Boolean).join(", ");
       const full = parts ? `${productName} (${parts})` : productName;
       $$("[data-quote-wa]", pdp).forEach((a) => { a.href = waLink(quoteText(full)); a.target = "_blank"; a.rel = "noopener"; });
-      $$("[data-quote-mail]", pdp).forEach((a) => { a.href = mailLink(`Trade quotation request — ${full}`, quoteText(full)); });
+      $$("[data-quote-mail]", pdp).forEach((a) => { a.href = mailLink(`Enquiry — ${full}`, quoteText(full)); });
     }
     updateQuote();
 
@@ -398,7 +398,7 @@ const CONFIG = {
     }
   }
 
-  /* ---------- B2B inquiry form ---------- */
+  /* ---------- Inquiry form ---------- */
   const form = $("#inquiry-form");
   if (form) {
     // Pre-select a product from ?product=slug (links from product pages and cards)
@@ -434,11 +434,11 @@ const CONFIG = {
       const f = new FormData(form);
       const products = f.getAll("products").map((v) => form.querySelector(`input[value="${v}"]`).dataset.label);
       const lines = [
-        "New B2B inquiry — Bincoo MENA",
+        "New inquiry — Bincoo MENA",
         "",
-        `Company: ${f.get("company")}`,
-        `Contact person: ${f.get("name")}`,
-        `Business type: ${f.get("type") || "—"}`,
+        `Company: ${f.get("company") || "—"}`,
+        `Name: ${f.get("name")}`,
+        `Interested in: ${f.get("type") || "—"}`,
         `Country: ${f.get("country")}`,
         `Email: ${f.get("email")}`,
         `Phone: ${f.get("phone")}`,
@@ -448,7 +448,7 @@ const CONFIG = {
         "",
         `Message: ${f.get("message") || "—"}`
       ];
-      return { text: lines.join("\n"), company: f.get("company") };
+      return { text: lines.join("\n"), company: f.get("company") || f.get("name") };
     };
 
     form.addEventListener("submit", (e) => {
@@ -461,7 +461,7 @@ const CONFIG = {
     $("[data-send-email]", form)?.addEventListener("click", () => {
       if (!validate()) return;
       const { text, company } = compose();
-      window.location.href = mailLink(`B2B inquiry — ${company}`, text);
+      window.location.href = mailLink(`Inquiry — ${company}`, text);
       if (status) status.textContent = "Opening your email app… your inquiry is ready to send.";
     });
   }

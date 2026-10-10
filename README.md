@@ -1,9 +1,9 @@
 # Bincoo MENA — Exclusive by KUVANI
 
 The official Bincoo website for the Middle East & North Africa, at **https://bincoo-mena.com**.
-It is a B2B site: businesses only, no online checkout. Quote requests go out by WhatsApp or email.
+Bincoo MENA sells only through authorized distributors: no online checkout and no direct sales to end customers. Enquiries go out by WhatsApp, email or the chat assistant.
 
-موقع Bincoo الرسمي لمنطقة الشرق الأوسط وشمال أفريقيا، حصرياً عن طريق KUVANI. الموقع B2B، يعني للشركات فقط وما فيه دفع أونلاين. طلبات عروض الأسعار بتوصل على الواتساب أو الإيميل.
+موقع Bincoo الرسمي لمنطقة الشرق الأوسط وشمال أفريقيا، حصرياً عن طريق KUVANI. البيع بيصير بس عن طريق موزّعين معتمدين، وما في دفع أونلاين ولا بيع مباشر للأفراد. الاستفسارات بتوصل على الواتساب أو الإيميل أو عن طريق التشات بوت.
 
 ---
 

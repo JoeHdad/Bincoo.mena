@@ -105,14 +105,14 @@
 - Q: Can individuals buy from Bincoo MENA?
   A: No. Bincoo MENA operates exclusively through authorized distributors. We do not sell directly to individuals or end customers. All purchases should be made through our official distributors in each market.
 - Q: How do I get pricing?
-  A: Send us an inquiry using the form, WhatsApp or email. Prices on this site are retail references in USD; trade pricing depends on your quantities and market, and we’ll send you a tailored quotation.
-- Q: Which countries do you serve?
-  A: We serve businesses across the Middle East & North Africa. Tell us your country and we’ll confirm availability and lead times.
-- Q: Is there a minimum order quantity?
-  A: Minimums depend on the product and your market. Share your estimated quantities in your inquiry and we’ll advise.
+  A: Prices on this site are retail references in USD. Final pricing is set by the authorized distributor in your market — contact us and we’ll connect you.
+- Q: Which countries do you cover?
+  A: Bincoo MENA covers the Middle East & North Africa. Tell us your country and we’ll point you to the authorized distributor there, or talk about distribution if there isn’t one yet.
+- Q: How can I become an authorized distributor?
+  A: Contact us with your company details and the market you cover. Distributor terms, including minimum orders, depend on the product and the market, and our team will walk you through them.
 - Q: Are there shipping fees?
-  A: There are no shipping fees on this site. Delivery is arranged directly with our team as part of your order.
+  A: There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market.
 - Q: Which versions are available?
   A: S2 Pro Trailblazer comes in black or white, or as a bundle with the DM02 electric grinder. The Automatic Pour-Over and Composer PO01 come in black or white.
 - Q: What power supply do the machines use?
-  A: The S2 Pro Trailblazer and Automatic Pour-Over run on 220 V / 50 Hz. We’ll confirm the requirements for your market with your quotation.
+  A: The S2 Pro Trailblazer and Automatic Pour-Over run on 220 V / 50 Hz. Your distributor can confirm the requirements for your market.

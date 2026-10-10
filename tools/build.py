@@ -73,12 +73,12 @@ HERO = [
 ]
 
 FAQS = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates exclusively through authorized distributors. We do not sell directly to individuals or end customers. All purchases should be made through our official distributors in each market."),
-        ("How do I get pricing?", "Send us an inquiry using the form, WhatsApp or email. Prices on this site are retail references in USD; trade pricing depends on your quantities and market, and we&rsquo;ll send you a tailored quotation."),
-        ("Which countries do you serve?", "We serve businesses across the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll confirm availability and lead times."),
-        ("Is there a minimum order quantity?", "Minimums depend on the product and your market. Share your estimated quantities in your inquiry and we&rsquo;ll advise."),
-        ("Are there shipping fees?", "There are no shipping fees on this site. Delivery is arranged directly with our team as part of your order."),
+        ("How do I get pricing?", "Prices on this site are retail references in USD. Final pricing is set by the authorized distributor in your market &mdash; contact us and we&rsquo;ll connect you."),
+        ("Which countries do you cover?", "Bincoo MENA covers the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll point you to the authorized distributor there, or talk about distribution if there isn&rsquo;t one yet."),
+        ("How can I become an authorized distributor?", "Contact us with your company details and the market you cover. Distributor terms, including minimum orders, depend on the product and the market, and our team will walk you through them."),
+        ("Are there shipping fees?", "There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market."),
         ("Which versions are available?", "S2 Pro Trailblazer comes in black or white, or as a bundle with the DM02 electric grinder. The Automatic Pour-Over and Composer PO01 come in black or white."),
-        ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. We&rsquo;ll confirm the requirements for your market with your quotation.")]
+        ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. Your distributor can confirm the requirements for your market.")]
 
 def img(name, p="", alt="", cls="", lazy=True, extra=""):
     c = f' class="{cls}"' if cls else ""
@@ -107,7 +107,7 @@ def card(pr, i, p=""):
           </div>
           <div class="p-card__actions">
             <a class="btn btn--sm" href="{href}">View details {I['arrow']}</a>
-            <a class="btn btn--sm btn--ghost" href="#" data-wa="{pr['full']}">{I['wa']} Get a quote</a>
+            <a class="btn btn--sm btn--ghost" href="#" data-wa="{pr['full']}">{I['wa']} Find a distributor</a>
           </div>
         </div>
       </article>'''
@@ -143,7 +143,7 @@ def head(title, desc, path, p="", og="assets/img/og.jpg", jsonld=None):
   <link rel="stylesheet" href="{p}assets/css/style.css?v={V}">{ld}
 </head>'''
 
-NAV = [("Collection", "#collection"), ("For Business", "#business"), ("About", "#about"), ("FAQ", "#faq"), ("Contact", "#inquiry")]
+NAV = [("Collection", "#collection"), ("Distributors", "#business"), ("About", "#about"), ("FAQ", "#faq"), ("Contact", "#inquiry")]
 
 def header(p="", home=True):
     base = "" if home else f"{p}"
@@ -164,7 +164,7 @@ def header(p="", home=True):
   <div class="topbar">
     <div class="container">
       <span class="topbar__dot"></span>
-      <span>Official Bincoo in MENA <span class="topbar__long">&middot; Business-to-business only</span></span>
+      <span>Official Bincoo in MENA <span class="topbar__long">&middot; Sold through authorized distributors</span></span>
       <span aria-hidden="true">&middot;</span>
       <span style="display:inline-flex;align-items:center;gap:8px">Exclusive by {kuvani(p=p)}</span>
     </div>
@@ -182,18 +182,18 @@ def header(p="", home=True):
         <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark theme" aria-pressed="false">
           <span class="theme-toggle__knob"></span>{I['sun']}{I['moon']}
         </button>
-        <a class="btn btn--sm" href="{base}#inquiry">Request a quote</a>
+        <a class="btn btn--sm" href="{base}#inquiry">Find a distributor</a>
         <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <div class="mobile-menu" id="mobile-menu">
-    <nav aria-label="Mobile">{nav}<a href="{base}#inquiry">Request a quote</a></nav>
+    <nav aria-label="Mobile">{nav}<a href="{base}#inquiry">Find a distributor</a></nav>
     <div class="mobile-menu__foot">
       <a href="https://wa.me/{WA}">WhatsApp &middot; {PHONE}</a>
       <a href="mailto:{EMAIL}">{EMAIL}</a>
-      <span>Exclusive by KUVANI &middot; B2B only</span>
+      <span>Exclusive by KUVANI &middot; Authorized distributors</span>
     </div>
   </div>
 '''
@@ -207,14 +207,14 @@ def footer(p="", home=True):
       <div class="footer__cta">
         <h2 data-split>Bring Bincoo to <em>your business.</em></h2>
         <div class="footer__cta-actions" data-reveal>
-          <a class="btn" href="{base}#inquiry">Request a trade quote {I['arrow']}</a>
+          <a class="btn" href="{base}#inquiry">Find a distributor {I['arrow']}</a>
           <a class="btn btn--wa" href="#" data-wa="">{I['wa']} WhatsApp us</a>
         </div>
       </div>
       <div class="footer__grid">
         <div class="footer__brand">
           {bincoo(p=p)}
-          <p>The official home of Bincoo in the Middle East &amp; North Africa. We supply businesses only.</p>
+          <p>The official home of Bincoo in the Middle East &amp; North Africa. Sold through authorized distributors.</p>
           <div class="social">
             <a href="{IG}" target="_blank" rel="noopener" aria-label="Bincoo MENA on Instagram">{I['ig']}</a>
             <a href="https://wa.me/{WA}" target="_blank" rel="noopener" aria-label="WhatsApp">{I['wa']}</a>
@@ -224,7 +224,7 @@ def footer(p="", home=True):
         <div><h4>Collection</h4><ul>{cols}</ul></div>
         <div><h4>Company</h4><ul>
           <li><a href="{base}#about">About us</a></li>
-          <li><a href="{base}#business">For business</a></li>
+          <li><a href="{base}#business">Become a distributor</a></li>
           <li><a href="{base}#process">How it works</a></li>
           <li><a href="{base}#faq">FAQ</a></li>
         </ul></div>
@@ -288,7 +288,7 @@ def home():
           <div class="chapter__stats" data-reveal>{st}</div>
           <div class="chapter__ctas" data-reveal>
             <a class="btn" href="products/{slug}.html">Explore the machine {I['arrow']}</a>
-            <a class="btn btn--ghost" href="#" data-wa="{full}">{I['wa']} Request a quote</a>
+            <a class="btn btn--ghost" href="#" data-wa="{full}">{I['wa']} Find a distributor</a>
           </div>
         </div>
       </article>'''
@@ -327,17 +327,17 @@ def home():
     segments = "".join(f'<article class="segment" data-reveal><span class="segment__icon">{I[i]}</span><h3>{t}</h3><p>{d}</p></article>' for i, t, d in segs)
 
     bens = [("Exclusive regional partner", "KUVANI is Bincoo&rsquo;s exclusive partner for the Middle East &amp; North Africa &mdash; you&rsquo;re buying from the source."),
-            ("Trade pricing", "Quotations shaped around your quantities, product mix and market &mdash; not a one-size retail price."),
+            ("Partner pricing", "Distributor terms shaped around your market, product mix and volumes &mdash; not a one-size retail price."),
             ("A direct line to our team", "Talk to real people on WhatsApp or email. Fast answers, clear terms, no call centres."),
-            ("Regional coverage", "We work with businesses across MENA, from the Gulf and the Levant to North Africa."),
+            ("Regional focus", "Dedicated to the Middle East &amp; North Africa, from the Gulf and the Levant to North Africa."),
             ("Genuine Bincoo products", "Official machines exactly as the brand designed them, supplied through the authorised channel."),
-            ("Business only, by design", "No retail checkout and no consumer orders &mdash; our focus stays entirely on our partners.")]
+            ("Distributor-led, by design", "No direct sales to end customers &mdash; every purchase goes through an authorized distributor in your market.")]
     benefits = "".join(f'<div class="benefit" data-reveal><b>0{k+1}</b><h3>{t}</h3><p>{d}</p></div>' for k, (t, d) in enumerate(bens))
 
-    steps_data = [("Tell us what you need", "Send an inquiry with your business details, machines of interest and estimated quantities."),
-                  ("Receive your trade quote", "Our team replies with tailored pricing, availability and lead times for your market."),
-                  ("Confirm your order", "Agree terms directly with us &mdash; no online checkout, no surprises."),
-                  ("Delivery &amp; set-up", "We coordinate delivery to your business and help your team get brewing.")]
+    steps_data = [("Get in touch", "Tell us your country and what you&rsquo;re looking for &mdash; buying, or becoming a distributor."),
+                  ("Meet your distributor", "We connect you with the authorized Bincoo distributor for your market."),
+                  ("Get pricing &amp; availability", "Your distributor shares final pricing, availability and delivery for your order."),
+                  ("Start brewing", "Set up with support from your distributor, backed by our regional team.")]
     steps = "".join(f'<div class="step" data-reveal><span class="step__n">0{k+1}</span><h3>{t}</h3><p>{d}</p></div>' for k, (t, d) in enumerate(steps_data))
 
     faqs = FAQS
@@ -347,12 +347,12 @@ def home():
 
     jsonld = {"@context": "https://schema.org", "@type": "Organization", "name": "Bincoo MENA", "url": DOMAIN + "/",
               "logo": DOMAIN + "/assets/img/brand/bincoo-color.svg", "email": EMAIL, "telephone": PHONE,
-              "description": "Official Bincoo distributor for the Middle East & North Africa, exclusive by KUVANI. Business-to-business only.",
+              "description": "Official Bincoo distributor for the Middle East & North Africa, exclusive by KUVANI. Sold through authorized distributors.",
               "sameAs": [IG], "areaServed": "Middle East and North Africa",
               "parentOrganization": {"@type": "Organization", "name": "KUVANI"}}
 
-    html = head("Bincoo MENA — Smart Coffee Machines for Business | Exclusive by KUVANI",
-                "The official home of Bincoo in the Middle East & North Africa, exclusive by KUVANI. Smart espresso and pour-over machines for cafés, hotels, offices and retailers — B2B only.",
+    html = head("Bincoo MENA — Official Bincoo Smart Coffee Machines | Exclusive by KUVANI",
+                "The official home of Bincoo in the Middle East & North Africa, exclusive by KUVANI. Smart espresso and pour-over machines, available through authorized distributors.",
                 "", p, jsonld=jsonld)
     html += header(p, True)
     html += f'''
@@ -362,15 +362,15 @@ def home():
       <div class="container hero__grid">
         <div class="hero__copy">
           <span class="eyebrow eyebrow--accent" data-intro style="--d:.1s">Official Bincoo &middot; Middle East &amp; North Africa</span>
-          <h1 class="hero__title" data-split>Coffee, <em>reimagined</em><br>for business.</h1>
-          <p class="lead" data-intro style="--d:.55s">Bincoo&rsquo;s smart espresso and pour-over machines are now available across the Middle East &amp; North Africa &mdash; exclusively through KUVANI. We supply caf&eacute;s, hotels, offices and retailers with trade pricing and a dedicated B2B team.</p>
+          <h1 class="hero__title" data-split>Coffee, <em>reimagined</em><br>for the region.</h1>
+          <p class="lead" data-intro style="--d:.55s">Bincoo&rsquo;s smart espresso and pour-over machines are now available across the Middle East &amp; North Africa &mdash; exclusively through KUVANI and a network of authorized distributors in each market.</p>
           <div class="hero__ctas" data-intro style="--d:.7s">
             <a class="btn" href="#collection">Explore the collection {I['arrow']}</a>
-            <a class="btn btn--ghost" href="#inquiry">Request trade pricing</a>
+            <a class="btn btn--ghost" href="#inquiry">Find a distributor</a>
           </div>
           <div class="hero__meta" data-intro style="--d:.85s">
             <div><strong>3</strong><span>Flagship machines</span></div>
-            <div><strong>B2B</strong><span>Trade accounts only</span></div>
+            <div><strong>Official</strong><span>Authorized distributors</span></div>
             <div><strong>MENA</strong><span>Regional coverage</span></div>
           </div>
         </div>
@@ -401,7 +401,7 @@ def home():
             <span class="eyebrow" data-reveal>The collection</span>
             <h2 data-split>Three machines. <em>One standard</em> of precision.</h2>
           </div>
-          <p class="lead" data-reveal>Our launch line-up brings Bincoo&rsquo;s most advanced brewers to the region &mdash; from dual-boiler espresso to fully automatic pour-over. Retail prices are shown for reference; businesses receive trade quotations.</p>
+          <p class="lead" data-reveal>Our launch line-up brings Bincoo&rsquo;s most advanced brewers to the region &mdash; from dual-boiler espresso to fully automatic pour-over. Prices are retail references; final pricing is set by the authorized distributor in each market.</p>
         </div>
         <div class="products-grid" data-stagger=".12">{cards}
         </div>
@@ -447,13 +447,13 @@ def home():
       <div class="container">
         <div class="b2b-banner" data-reveal="scale">
           <div style="display:grid;gap:22px">
-            <span class="eyebrow">For business</span>
-            <h2 data-split>Built for venues that <em>serve coffee seriously.</em></h2>
+            <span class="eyebrow">Become a distributor</span>
+            <h2 data-split>Grow with Bincoo in <em>your market.</em></h2>
           </div>
           <div style="display:grid;gap:26px">
-            <p>Bincoo MENA works exclusively with businesses. Whether you&rsquo;re opening a specialty caf&eacute;, equipping a hotel or stocking retail shelves, we&rsquo;ll tailor a quotation to your volume and market.</p>
+            <p>Bincoo MENA appoints authorized distributors across the Middle East &amp; North Africa. If you&rsquo;re a distributor, retailer or equipment supplier, talk to us about representing Bincoo in your country.</p>
             <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <a class="btn" href="#inquiry">Open a trade account {I['arrow']}</a>
+              <a class="btn" href="#inquiry">Become a distributor {I['arrow']}</a>
               <a class="btn btn--ghost" href="#" data-mail="">{I['mail']} Email our team</a>
             </div>
           </div>
@@ -485,8 +485,8 @@ def home():
           <span class="eyebrow" data-reveal>About us</span>
           <h2 data-split>The official home of Bincoo <em>in the region.</em></h2>
           <p class="lead" data-reveal>Bincoo designs smart coffee machines and brewing tools that let everyone who loves coffee become their own barista. Bincoo MENA brings that range to the Middle East &amp; North Africa &mdash; operated exclusively by KUVANI.</p>
-          <p class="lead" data-reveal>We are a business-to-business operation. We partner with caf&eacute;s, roasteries, hotels, restaurants, offices, retailers and distributors, supplying genuine Bincoo machines with trade pricing and hands-on support.</p>
-          <div class="notice" data-reveal>{I['briefcase']}<div><strong>We sell to businesses only</strong><p>Bincoo MENA does not sell to individual consumers. If you represent a company, contact us for a trade quotation.</p></div></div>
+          <p class="lead" data-reveal>We don&rsquo;t sell directly to end customers. Bincoo MENA works through authorized distributors in each market, backing them with genuine Bincoo machines, partner pricing and hands-on support.</p>
+          <div class="notice" data-reveal>{I['briefcase']}<div><strong>Sold through authorized distributors</strong><p>Bincoo MENA does not sell directly to individuals or end customers. Contact us to find the authorized distributor in your market, or to become one.</p></div></div>
           <blockquote class="quote" data-reveal>&ldquo;Coffee, reimagined. Smart machines. Exceptional brewing.&rdquo;<cite>Bincoo MENA</cite></blockquote>
         </div>
       </div>
@@ -521,8 +521,8 @@ def home():
       <div class="container inquiry">
         <aside class="inquiry__aside">
           <span class="eyebrow" data-reveal>Contact</span>
-          <h2 data-split>Let&rsquo;s talk <em>business.</em></h2>
-          <p class="lead" data-reveal>Tell us about your company and the machines you&rsquo;re interested in. Our team will reply with a tailored trade quotation.</p>
+          <h2 data-split>Let&rsquo;s get <em>in touch.</em></h2>
+          <p class="lead" data-reveal>Looking for Bincoo in your country, or want to become an authorized distributor? Tell us a little about you and our team will get back to you.</p>
           <div class="contact-list" data-stagger=".08">
             <a class="contact-item" data-reveal href="https://wa.me/{WA}" target="_blank" rel="noopener"><span class="contact-item__icon" style="color:#1f8f4e">{I['wa']}</span><span><small>WhatsApp</small><strong>{PHONE}</strong></span>{I['arrow_ur']}</a>
             <a class="contact-item" data-reveal href="tel:+{WA}"><span class="contact-item__icon">{I['phone']}</span><span><small>Call us</small><strong>{PHONE}</strong></span>{I['arrow_ur']}</a>
@@ -533,15 +533,15 @@ def home():
 
         <form class="form" id="inquiry-form" novalidate data-reveal="scale">
           <div class="form__head">
-            <h3>Request a trade quote</h3>
+            <h3>Contact our team</h3>
             <p class="muted">Fill in your details, then send via WhatsApp or email &mdash; your message is prepared automatically.</p>
           </div>
           <div class="form__grid">
-            <div class="field"><label for="f-company">Company name <span class="req">*</span></label><input class="input" id="f-company" name="company" autocomplete="organization" required placeholder="Your company"><span class="field__error">Please enter your company name.</span></div>
-            <div class="field"><label for="f-name">Contact person <span class="req">*</span></label><input class="input" id="f-name" name="name" autocomplete="name" required placeholder="Full name"><span class="field__error">Please enter your name.</span></div>
-            <div class="field"><label for="f-type">Business type</label><select class="select" id="f-type" name="type"><option value="">Select&hellip;</option><option>Caf&eacute; / Roastery</option><option>Hotel / Restaurant</option><option>Office / Corporate</option><option>Retailer / Distributor</option><option>Other</option></select></div>
+            <div class="field"><label for="f-company">Company</label><input class="input" id="f-company" name="company" autocomplete="organization" placeholder="Your company (optional)"></div>
+            <div class="field"><label for="f-name">Your name <span class="req">*</span></label><input class="input" id="f-name" name="name" autocomplete="name" required placeholder="Full name"><span class="field__error">Please enter your name.</span></div>
+            <div class="field"><label for="f-type">I&rsquo;m interested in</label><select class="select" id="f-type" name="type"><option value="">Select&hellip;</option><option>Finding where to buy in my country</option><option>Becoming an authorized distributor</option><option>Something else</option></select></div>
             <div class="field"><label for="f-country">Country <span class="req">*</span></label><select class="select" id="f-country" name="country" required><option value="">Select&hellip;</option>{copts}</select><span class="field__error">Please choose your country.</span></div>
-            <div class="field"><label for="f-email">Work email <span class="req">*</span></label><input class="input" id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@company.com"><span class="field__error">Please enter a valid email.</span></div>
+            <div class="field"><label for="f-email">Email <span class="req">*</span></label><input class="input" id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@company.com"><span class="field__error">Please enter a valid email.</span></div>
             <div class="field"><label for="f-phone">Phone / WhatsApp <span class="req">*</span></label><input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+974 ..."><span class="field__error">Please enter a phone number.</span></div>
             <fieldset class="field field--full"><legend>Machines of interest</legend><div class="checks" style="margin-top:8px">{checks}</div></fieldset>
             <div class="field field--full"><label for="f-qty">Estimated quantity</label><input class="input" id="f-qty" name="quantity" placeholder="e.g. 6 &times; S2 Pro (black), 2 &times; Composer PO01"></div>
@@ -552,7 +552,7 @@ def home():
             <button class="btn btn--ghost" type="button" data-send-email>{I['mail']} Send via email</button>
           </div>
           <p class="form__status" role="status" aria-live="polite"></p>
-          <p class="form__note">We respond to business inquiries only. Your details are used solely to reply to your request.</p>
+          <p class="form__note">We&rsquo;ll connect you with the authorized distributor in your market. Your details are used solely to reply to your request.</p>
         </form>
       </div>
     </section>
@@ -564,7 +564,7 @@ def home():
 # ---------------------------------------------------------------- product pages
 PDP = {
  "s2-pro-trailblazer": dict(
-    desc="Bincoo S2 Pro Trailblazer smart espresso machine: 3.4\" touch screen and Bluetooth app control, triple pumps with dual instant boilers, 58 mm group head and 3–12 bar pressure profiling. Trade pricing for businesses in MENA.",
+    desc="Bincoo S2 Pro Trailblazer smart espresso machine: 3.4\" touch screen and Bluetooth app control, triple pumps with dual instant boilers, 58 mm group head and 3–12 bar pressure profiling. Available through authorized distributors in MENA.",
     lead="A dual-control espresso machine with a 3.4-inch HD touch screen and Bluetooth app, triple pumps and dual instant boilers, a 58&nbsp;mm professional group head and fully adjustable pressure, temperature and flow.",
     thumbs=[("s2-black", "contain", "S2 Pro Trailblazer in black"), ("s2-white", "contain", "S2 Pro Trailblazer in white"),
             ("s2-bundle-black", "contain", "S2 Pro with DM02 grinder, black"), ("s2-bundle-white", "contain", "S2 Pro with DM02 grinder, white"),
@@ -606,7 +606,7 @@ PDP = {
            ("Bundle option", "With DM02 electric bean grinder")],
     recipes=None),
  "automatic-pour-over": dict(
-    desc="Bincoo Fully Automatic Smart Pour-Over Coffee Machine: built-in 38 mm burr grinder with 80 settings, 4.3\" HD touch screen, custom recipes and multi-stage pouring. Trade pricing for businesses in MENA.",
+    desc="Bincoo Fully Automatic Smart Pour-Over Coffee Machine: built-in 38 mm burr grinder with 80 settings, 4.3\" HD touch screen, custom recipes and multi-stage pouring. Available through authorized distributors in MENA.",
     lead="A fully automatic grind-and-brew pour-over machine. A 38&nbsp;mm six-star steel burr grinds fresh, then multi-stage water flow blooms, pours and drips with barista precision &mdash; controlled from a 4.3-inch HD touch screen.",
     thumbs=[("po-black", "contain", "Automatic Pour-Over in black"), ("po-white", "contain", "Automatic Pour-Over in white"),
             ("po-life-touch", "cover", "Selecting a recipe on the touch screen"), ("po-life-beans", "cover", "Adding beans to the hopper"),
@@ -643,7 +643,7 @@ PDP = {
            ("Colours", "Black &middot; White")],
     recipes=None),
  "composer-po01": dict(
-    desc="Bincoo Composer PO01 automatic pour-over coffee maker: PID heating 40–95 °C, six brewing modes, three professional pour techniques and automatic water supply. Trade pricing for businesses in MENA.",
+    desc="Bincoo Composer PO01 automatic pour-over coffee maker: PID heating 40–95 °C, six brewing modes, three professional pour techniques and automatic water supply. Available through authorized distributors in MENA.",
     lead="An automatic pour-over brewer that reproduces professional hand-pour techniques. PID heating from 40&ndash;95&nbsp;&deg;C, six preset brewing modes, a dynamic brewing system and automatic water supply for non-stop service.",
     thumbs=[("cp-black", "contain", "Composer PO01 in black"), ("cp-life-dark", "cover", "Composer PO01 in black on a café counter"),
             ("cp-life-white", "cover", "Composer PO01 in white on a café counter"), ("cp-duo", "cover", "Composer PO01 in black and white")],
@@ -738,19 +738,19 @@ def product_page(slug):
           <div class="pdp__price" data-reveal>
             <small data-price>Retail reference (USD)</small>
             <strong data-price data-price-value>{price_val}</strong>
-            <span class="trade">Trade pricing available for businesses &mdash; request a quote</span>
+            <span class="trade">Final pricing from the authorized distributor in your market</span>
           </div>
           <div class="opt" data-option="color" data-reveal><span class="opt__label">Colour <span data-option-value="color"></span></span><div class="opt__row">{colors}</div></div>
           {configs}
           <div class="pdp__ctas" data-reveal>
-            <a class="btn btn--wa" href="https://wa.me/{WA}" data-quote-wa>{I['wa']} Request a quote on WhatsApp</a>
+            <a class="btn btn--wa" href="https://wa.me/{WA}" data-quote-wa>{I['wa']} Find a distributor on WhatsApp</a>
             <a class="btn btn--ghost" href="mailto:{EMAIL}" data-quote-mail>{I['mail']} Email us</a>
-            <a class="btn btn--ghost" href="../?product={pr['value']}#inquiry">Detailed inquiry</a>
+            <a class="btn btn--ghost" href="../?product={pr['value']}#inquiry">Contact form</a>
           </div>
           <div class="assure" data-reveal>
             <div>{I['shield']}<strong>Official Bincoo</strong>Genuine product via the exclusive MENA partner.</div>
-            <div>{I['tag']}<strong>Trade pricing</strong>Quotes tailored to your volume and market.</div>
-            <div>{I['briefcase']}<strong>B2B only</strong>We supply businesses, not individuals.</div>
+            <div>{I['tag']}<strong>Authorized distributors</strong>Buy through the official distributor in your market.</div>
+            <div>{I['briefcase']}<strong>Direct line</strong>Questions? Our team answers on WhatsApp.</div>
           </div>
           <div class="keyfacts" data-reveal>{keyfacts}</div>
         </div>
@@ -770,7 +770,7 @@ def product_page(slug):
         <div class="section-head" style="margin-bottom:0">
           <span class="eyebrow" data-reveal>Specifications</span>
           <h2 data-split>Every <em>detail.</em></h2>
-          <p class="lead" data-reveal>Technical data as published by Bincoo. Confirm requirements for your market with your quotation.</p>
+          <p class="lead" data-reveal>Technical data as published by Bincoo. Your distributor can confirm the requirements for your market.</p>
           <div data-reveal><a class="btn" href="#" data-wa="{pr['full']}">{I['wa']} Ask about this machine</a></div>
         </div>
         <div class="table-wrap" data-reveal><table class="spec-table"><tbody>{specs}</tbody></table></div>
