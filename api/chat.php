@@ -87,7 +87,7 @@ $reply = trim(preg_replace('/<think>.*?<\/think>/s', '', $reply));
 if ($status !== 200 || $reply === '') {
     $code = isset($data['error']['code']) ? $data['error']['code'] : $status;
     error_log('bincoo chat upstream error: HTTP ' . $status . ' ' . substr((string) $response, 0, 500));
-    bm_json($status === 429 || $code === 429 ? 429 : 502, array('error' => ($status === 429 || $code === 429) ? 'busy' : 'upstream_error', 'upstream' => $code));
+    bm_json($status === 429 || $code === 429 ? 429 : 502, array('error' => ($status === 429 || $code === 429) ? 'busy' : 'upstream_error', 'upstream' => $code, 'detail' => isset($data['error']['message']) ? substr((string) $data['error']['message'], 0, 200) : ''));
 }
 
 $contact = strpos($reply, '[[CONTACT]]') !== false;
