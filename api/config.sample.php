@@ -8,8 +8,7 @@ return array(
     // Free models, tried in order. To upgrade later, e.g. 'anthropic/claude-haiku-5.5'.
     'models' => array(
         'google/gemma-4-31b-it:free',
-        'nvidia/nemotron-3-super-120b-a12b:free',
-        'openrouter/free',
+        'google/gemma-4-26b-a4b-it:free',
     ),
 
     // Where contact requests from the chat are emailed.

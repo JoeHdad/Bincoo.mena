@@ -18,7 +18,9 @@ function bm_config()
     }
     $defaults = array(
         'openrouter_key' => '',
-        'models'         => array('google/gemma-4-31b-it:free', 'nvidia/nemotron-3-super-120b-a12b:free', 'openrouter/free'),
+        // Two chat models from the same family, so tone and format stay consistent on fallback.
+        // Avoid 'openrouter/free': it can route to classifier or reasoning-dump models.
+        'models'         => array('google/gemma-4-31b-it:free', 'google/gemma-4-26b-a4b-it:free'),
         'lead_email'     => 'bincoo@kuvani.com',
         'from_email'     => 'noreply@bincoo-mena.com',
         'allowed_hosts'  => array('bincoo-mena.com', 'www.bincoo-mena.com'),
