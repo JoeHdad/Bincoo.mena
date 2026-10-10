@@ -1,0 +1,4 @@
+# Only the two public endpoints are reachable; helpers, the knowledge file and templates are not.
+<FilesMatch "^(?!(chat|lead)\.php$).+">
+  Require all denied
+</FilesMatch>

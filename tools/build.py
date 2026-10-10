@@ -72,6 +72,14 @@ HERO = [
       chips=[(I["screen"], "6 preset brewing modes"), (I["gauge"], "PID 40&ndash;95 &deg;C"), ("H&#8322;O", "Automatic water supply")]),
 ]
 
+FAQS = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates exclusively through authorized distributors. We do not sell directly to individuals or end customers. All purchases should be made through our official distributors in each market."),
+        ("How do I get pricing?", "Send us an inquiry using the form, WhatsApp or email. Prices on this site are retail references in USD; trade pricing depends on your quantities and market, and we&rsquo;ll send you a tailored quotation."),
+        ("Which countries do you serve?", "We serve businesses across the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll confirm availability and lead times."),
+        ("Is there a minimum order quantity?", "Minimums depend on the product and your market. Share your estimated quantities in your inquiry and we&rsquo;ll advise."),
+        ("Are there shipping fees?", "There are no shipping fees on this site. Delivery is arranged directly with our team as part of your order."),
+        ("Which versions are available?", "S2 Pro Trailblazer comes in black or white, or as a bundle with the DM02 electric grinder. The Automatic Pour-Over and Composer PO01 come in black or white."),
+        ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. We&rsquo;ll confirm the requirements for your market with your quotation.")]
+
 def img(name, p="", alt="", cls="", lazy=True, extra=""):
     c = f' class="{cls}"' if cls else ""
     l = ' loading="lazy" decoding="async"' if lazy else ' fetchpriority="high"'
@@ -235,8 +243,8 @@ def footer(p="", home=True):
     <div class="footer__giant" aria-hidden="true">Bincoo MENA</div>
   </footer>
 
-  <a class="fab" href="#" data-wa="" aria-label="Chat with us on WhatsApp">{I['wa']}</a>
   <script src="{p}assets/js/main.js?v={V}" defer></script>
+  <script src="{p}assets/js/chat.js?v={V}" defer></script>
 </body>
 </html>
 '''
@@ -332,13 +340,7 @@ def home():
                   ("Delivery &amp; set-up", "We coordinate delivery to your business and help your team get brewing.")]
     steps = "".join(f'<div class="step" data-reveal><span class="step__n">0{k+1}</span><h3>{t}</h3><p>{d}</p></div>' for k, (t, d) in enumerate(steps_data))
 
-    faqs = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates exclusively through authorized distributors. We do not sell directly to individuals or end customers. All purchases should be made through our official distributors in each market."),
-            ("How do I get pricing?", "Send us an inquiry using the form, WhatsApp or email. Prices on this site are retail references in USD; trade pricing depends on your quantities and market, and we&rsquo;ll send you a tailored quotation."),
-            ("Which countries do you serve?", "We serve businesses across the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll confirm availability and lead times."),
-            ("Is there a minimum order quantity?", "Minimums depend on the product and your market. Share your estimated quantities in your inquiry and we&rsquo;ll advise."),
-            ("Are there shipping fees?", "There are no shipping fees on this site. Delivery is arranged directly with our team as part of your order."),
-            ("Which versions are available?", "S2 Pro Trailblazer comes in black or white, or as a bundle with the DM02 electric grinder. The Automatic Pour-Over and Composer PO01 come in black or white."),
-            ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. We&rsquo;ll confirm the requirements for your market with your quotation.")]
+    faqs = FAQS
     faq_html = "".join(f'<details data-reveal><summary>{q}<i aria-hidden="true"></i></summary><div class="faq__a"><p>{a}</p></div></details>' for q, a in faqs)
 
     checks = "".join(f'''<div class="check"><input type="checkbox" id="pr-{x["value"]}" name="products" value="{x["value"]}" data-label="{x["name"]}"><label for="pr-{x["value"]}">{x["name"]}<small>{x["cat"]}</small></label></div>''' for x in PRODUCTS)
@@ -813,6 +815,48 @@ def notfound():
     html += footer(p, False)
     return html
 
+def knowledge():
+    """Plain-text knowledge base for the site chatbot, built from the same data as the pages."""
+    import html as _html, re as _re
+    t = lambda s: _re.sub(r"\s+", " ", _html.unescape(_re.sub(r"<[^>]+>", "", s))).strip()
+    out = ["# Bincoo MENA — knowledge base",
+           "",
+           "## Company",
+           "- Bincoo MENA is the official home of Bincoo smart coffee machines in the Middle East & North Africa, operated exclusively by KUVANI.",
+           "- Sales model: Bincoo MENA sells only through authorized distributors. It does not sell directly to individuals or end customers.",
+           "- Businesses that want to become an authorized distributor, and anyone looking for where to buy in their market, should contact the team.",
+           "- There is no online checkout and no shipping fees on the website.",
+           f"- Website: {DOMAIN}",
+           f"- WhatsApp / phone: {PHONE}",
+           f"- Email: {EMAIL}",
+           "- Instagram: @bincoo.mena (KUVANI: @kuvani.co)",
+           "",
+           "## Prices",
+           "- Prices are retail reference prices in US dollars, for information only. Final pricing is set by the authorized distributor in each market.",
+           ""]
+    for pr in PRODUCTS:
+        d = PDP[pr["slug"]]
+        out += [f"## {pr['name']} — {t(pr['cat'])}",
+                f"- Full name: {pr['full']}",
+                f"- Retail reference price: {pr['price']}",
+                f"- Page: {DOMAIN}/products/{pr['slug']}.html",
+                f"- Summary: {t(d['lead'])}",
+                f"- Colours: {', '.join(c for c, _ in d['colors'])}"]
+        if d["configs"]:
+            out.append("- Configurations: " + "; ".join(f"{c} ({t(pz)})" for c, pz, _ in d["configs"]))
+        out.append("- Highlights:")
+        out += [f"  - {t(title)}: {t(txt)}" for _, title, txt, _ in d["features"]]
+        out.append("- Specifications:")
+        out += [f"  - {t(a)}: {t(b)}" for a, b in d["specs"]]
+        if d["recipes"]:
+            out.append("- Built-in brewing methods:")
+            out += [f"  - {t(a)} ({t(b)}): {t(c)} Best for: {t(e)}" for a, b, c, e in d["recipes"]]
+        out.append("")
+    out.append("## Frequently asked questions")
+    for q, a in FAQS:
+        out += [f"- Q: {t(q)}", f"  A: {t(a)}"]
+    return "\n".join(out) + "\n"
+
 def write(rel, s):
     path = os.path.join(SITE, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -824,3 +868,4 @@ write("index.html", home())
 for pr in PRODUCTS:
     write(f"products/{pr['slug']}.html", product_page(pr["slug"]))
 write("404.html", notfound())
+write("api/knowledge.md", knowledge())
