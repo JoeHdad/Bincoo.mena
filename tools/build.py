@@ -77,7 +77,7 @@ FAQS = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates excl
         ("Which countries do you cover?", "Bincoo MENA covers the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll point you to the authorized distributor there, or talk about distribution if there isn&rsquo;t one yet."),
         ("How can I become an authorized distributor?", "Contact us with your company details and the market you cover. Distributor terms, including minimum orders, depend on the product and the market, and our team will walk you through them."),
         ("Are there shipping fees?", "There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market."),
-        ("Which versions are available?", "S2 Pro Trailblazer comes in black or white, or as a bundle with the DM02 electric grinder. The Automatic Pour-Over and Composer PO01 come in black or white."),
+        ("Which versions are available?", "All three machines &mdash; S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 &mdash; come in black or white."),
         ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. Your distributor can confirm the requirements for your market.")]
 
 def img(name, p="", alt="", cls="", lazy=True, extra=""):
@@ -567,13 +567,12 @@ PDP = {
     desc="Bincoo S2 Pro Trailblazer smart espresso machine: 3.4\" touch screen and Bluetooth app control, triple pumps with dual instant boilers, 58 mm group head and 3–12 bar pressure profiling. Available through authorized distributors in MENA.",
     lead="A dual-control espresso machine with a 3.4-inch HD touch screen and Bluetooth app, triple pumps and dual instant boilers, a 58&nbsp;mm professional group head and fully adjustable pressure, temperature and flow.",
     thumbs=[("s2-black", "contain", "S2 Pro Trailblazer in black"), ("s2-white", "contain", "S2 Pro Trailblazer in white"),
-            ("s2-bundle-black", "contain", "S2 Pro with DM02 grinder, black"), ("s2-bundle-white", "contain", "S2 Pro with DM02 grinder, white"),
             ("s2-life-espresso", "cover", "S2 Pro pulling a shot on a bar counter"), ("s2-life-white", "cover", "S2 Pro in white with steam"),
             ("s2-life-pitcher", "cover", "Steaming milk with the S2 Pro"), ("s2-life-portafilter", "cover", "58 mm portafilter detail"),
             ("s2-life-steam", "cover", "S2 Pro steam in action"), ("s2-app", "cover", "Touch screen and mobile app control"),
             ("s2-cutaway", "cover", "Thermal group head cutaway"), ("s2-life-grinder", "cover", "S2 Pro with grinder at home")],
     colors=[("Black", "s2-black"), ("White", "s2-white")],
-    configs=[("Machine only", "$2,200", None), ("Machine + DM02 grinder", "On request", "s2-bundle-{color}")],
+    configs=None,
     keyfacts=[("Control", "3.4&Prime; touch screen + app"), ("Pressure", "3&ndash;12 bar, adjustable"), ("Group head", "58 mm thermal"), ("Boilers", "Triple pumps, dual instant")],
     features=[
       ("s2-app", "Dual control. <em>True intelligence.</em>", "A 3.4-inch HD touch screen plus a direct Bluetooth connection to the Bincoo app. Set mode, temperature, water volume and pressure with a slide of the finger &mdash; every parameter at a glance.",
@@ -602,8 +601,7 @@ PDP = {
            ("Dimensions (L &times; W &times; H)", "300 &times; 340 &times; 339 mm"),
            ("Net weight", "11 kg"),
            ("Materials", "304 stainless steel, plastic, silicone"),
-           ("Colours", "Black &middot; White"),
-           ("Bundle option", "With DM02 electric bean grinder")],
+           ("Colours", "Black &middot; White")],
     recipes=None),
  "automatic-pour-over": dict(
     desc="Bincoo Fully Automatic Smart Pour-Over Coffee Machine: built-in 38 mm burr grinder with 80 settings, 4.3\" HD touch screen, custom recipes and multi-stage pouring. Available through authorized distributors in MENA.",

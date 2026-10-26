@@ -19,7 +19,6 @@
 - Page: https://bincoo-mena.com/products/s2-pro-trailblazer.html
 - Summary: A dual-control espresso machine with a 3.4-inch HD touch screen and Bluetooth app, triple pumps and dual instant boilers, a 58 mm professional group head and fully adjustable pressure, temperature and flow.
 - Colours: Black, White
-- Configurations: Machine only ($2,200); Machine + DM02 grinder (On request)
 - Highlights:
   - Dual control. True intelligence.: A 3.4-inch HD touch screen plus a direct Bluetooth connection to the Bincoo app. Set mode, temperature, water volume and pressure with a slide of the finger — every parameter at a glance.
   - Five functions, every drink.: Hot extraction, variable-pressure extraction, cold extraction, automatic puck clearing and steam. Hot coffee in the morning, iced drinks in summer and every milk-based favourite in between.
@@ -43,7 +42,6 @@
   - Net weight: 11 kg
   - Materials: 304 stainless steel, plastic, silicone
   - Colours: Black · White
-  - Bundle option: With DM02 electric bean grinder
 
 ## Automatic Pour-Over — Grind & Brew Pour-Over
 - Full name: Bincoo Fully Automatic Smart Pour-Over Coffee Machine
@@ -113,6 +111,6 @@
 - Q: Are there shipping fees?
   A: There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market.
 - Q: Which versions are available?
-  A: S2 Pro Trailblazer comes in black or white, or as a bundle with the DM02 electric grinder. The Automatic Pour-Over and Composer PO01 come in black or white.
+  A: All three machines — S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 — come in black or white.
 - Q: What power supply do the machines use?
   A: The S2 Pro Trailblazer and Automatic Pour-Over run on 220 V / 50 Hz. Your distributor can confirm the requirements for your market.
