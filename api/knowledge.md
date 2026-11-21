@@ -99,6 +99,48 @@
   - Three-stage (15 g · 92 °C · 1:16 · 240 ml): After blooming, water is poured in three stages. Best for: More layered cup — for light to medium roasts.
   - Four-to-six (15 g · 92 °C · 1:16 · 240 ml): After blooming, the remaining water is divided into four pours. Best for: High sweetness and body — for advanced brewers, light to medium roasts.
 
+## PO06 — Commercial Pour-Over Machine
+- Full name: Bincoo PO06 Triple-Head Commercial Automatic Pour-Over Coffee Machine
+- Retail reference price: $9,950
+- Page: https://bincoo-mena.com/products/po06.html
+- Summary: A commercial automatic pour-over machine with three independent brew heads, three colour touch screens and programmable multi-stage pouring — built for specialty cafés, roasteries, hotels, restaurants and high-volume coffee service.
+- Colours: Black
+- Highlights:
+  - Three brews. One rhythm.: Three brew heads work at the same time, each with its own touch screen and independent control. Brew three different coffees at once and keep the bar moving — up to 75–90 cups an hour.
+  - A screen for every station.: Three dedicated colour touch screens show live brew progress, water temperature, current flow and the active sequence. Select a saved recipe and the whole brew runs with a single command.
+  - Every pour, programmable.: Build recipes with up to six pouring stages, programmable bloom volume, bloom time and pause intervals, and flow of up to 5.0 mL/s per head — held at 80–96 °C by electronic PID within ±1 °C.
+  - Built for non-stop service.: Rapid flow-through heating handles back-to-back brewing, a direct water connection keeps it running all day, and each head has its own rinse function. The body is stainless steel and aluminium.
+- Specifications:
+  - Product type: Commercial automatic pour-over coffee machine
+  - Model: PO06
+  - Brewing heads: 3, with independent head control
+  - Brewing operation: Fully automatic · simultaneous brewing on all 3 heads
+  - Displays: 3 × colour touch displays
+  - Temperature control: Electronic PID
+  - Brewing temperature: 80–96 °C
+  - Temperature stability: ±1 °C
+  - Brew volume: 150–600 mL per head
+  - Pour stages: Up to 6 per recipe
+  - Flow rate: Up to 5.0 mL/s per head
+  - Bloom, pour volume & intervals: Programmable
+  - Recipe memory: Up to 16 recipes per head · 48 in total
+  - Heating system: Rapid flow-through heating
+  - Pump system: 3 precision pumps
+  - Water supply: Direct water connection · external water source optional
+  - Rinse function: Per-head rinse
+  - Dripper compatibility: Commercial pour-over drippers
+  - Brew time: 2:30–4:00 min
+  - Brewing capacity: 75–90 cups per hour
+  - Main body material: Stainless steel / aluminium
+  - Installation: Countertop
+  - Power supply: 220–240 V · 50–60 Hz
+  - Rated power: 3400 W
+  - Recommended circuit: Dedicated 16 A
+  - Dimensions (W × D × H): 780 × 430 × 640 mm
+  - Net weight: 40–45 kg
+  - Application: Cafés · Roasteries · Hotels · Restaurants · Specialty coffee bars
+  - Colours: Black
+
 ## Frequently asked questions
 - Q: Can individuals buy from Bincoo MENA?
   A: No. Bincoo MENA operates exclusively through authorized distributors. We do not sell directly to individuals or end customers. All purchases should be made through our official distributors in each market.
@@ -111,6 +153,6 @@
 - Q: Are there shipping fees?
   A: There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market.
 - Q: Which versions are available?
-  A: All three machines — S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 — come in black or white.
+  A: The S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 come in black or white. The PO06 commercial machine comes in black.
 - Q: What power supply do the machines use?
-  A: The S2 Pro Trailblazer and Automatic Pour-Over run on 220 V / 50 Hz. Your distributor can confirm the requirements for your market.
+  A: The S2 Pro Trailblazer and Automatic Pour-Over run on 220 V / 50 Hz. The PO06 needs 220–240 V, 50–60 Hz on a dedicated 16 A circuit (3400 W). Your distributor can confirm the requirements for your market.

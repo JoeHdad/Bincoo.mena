@@ -60,6 +60,10 @@ PRODUCTS = [
       full="Bincoo Composer PO01 Automatic Pour-Over Coffee Maker", cat="Automatic Pour-Over Brewer", tag="Compact",
       card_desc="Pro pour techniques, automated &mdash; PID heating from 40&ndash;95&nbsp;&deg;C and six brewing modes.",
       price="$650", main="cp-black", alt=None),
+ dict(slug="po06", value="po06", name="PO06", title_html="PO06 <em>Triple-Head</em>",
+      full="Bincoo PO06 Triple-Head Commercial Automatic Pour-Over Coffee Machine", cat="Commercial Pour-Over Machine", tag="Commercial",
+      card_desc="Three brew heads, three touch screens and up to 90 cups an hour &mdash; automated pour-over for busy caf&eacute;s.",
+      price="$9,950", main="po6-main", alt=None),
 ]
 BY_SLUG = {p["slug"]: p for p in PRODUCTS}
 
@@ -70,6 +74,8 @@ HERO = [
       chips=[(I["screen"], "4.3&Prime; HD touch screen"), ("80", "step burr grinder"), ("3&prime;", "Bean to cup in ~3 min")]),
  dict(slug="composer-po01", name="Composer PO01", image="cp-black", alt="Bincoo Composer PO01 automatic pour-over brewer in black",
       chips=[(I["screen"], "6 preset brewing modes"), (I["gauge"], "PID 40&ndash;95 &deg;C"), ("H&#8322;O", "Automatic water supply")]),
+ dict(slug="po06", name="PO06 Commercial", image="po6-main", alt="Bincoo PO06 triple-head commercial automatic pour-over machine",
+      chips=[(I["screen"], "3 heads &middot; 3 touch screens"), ("90", "cups per hour"), (I["gauge"], "PID 80&ndash;96 &deg;C")]),
 ]
 
 FAQS = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates exclusively through authorized distributors. We do not sell directly to individuals or end customers. All purchases should be made through our official distributors in each market."),
@@ -77,8 +83,8 @@ FAQS = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates excl
         ("Which countries do you cover?", "Bincoo MENA covers the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll point you to the authorized distributor there, or talk about distribution if there isn&rsquo;t one yet."),
         ("How can I become an authorized distributor?", "Contact us with your company details and the market you cover. Distributor terms, including minimum orders, depend on the product and the market, and our team will walk you through them."),
         ("Are there shipping fees?", "There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market."),
-        ("Which versions are available?", "All three machines &mdash; S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 &mdash; come in black or white."),
-        ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. Your distributor can confirm the requirements for your market.")]
+        ("Which versions are available?", "The S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 come in black or white. The PO06 commercial machine comes in black."),
+        ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. The PO06 needs 220&ndash;240&nbsp;V, 50&ndash;60&nbsp;Hz on a dedicated 16&nbsp;A circuit (3400&nbsp;W). Your distributor can confirm the requirements for your market.")]
 
 def img(name, p="", alt="", cls="", lazy=True, extra=""):
     c = f' class="{cls}"' if cls else ""
@@ -271,12 +277,12 @@ def home():
         f'<span class="hero__dot-bar"><i></i></span><span class="hero__dot-label">{h["name"]}</span></button>'
         for k, h in enumerate(HERO))
 
-    def chapter(n, flip, photo, photo_alt, tile, tile_alt, eyebrow, title, text, stats, ticks, slug, full):
+    def chapter(n, flip, photo, photo_alt, tile, tile_alt, eyebrow, title, text, stats, ticks, slug, full, wide=False):
         st = "".join(f'<div class="stat"><strong>{a}</strong><span>{b}</span></div>' for a, b in stats)
         return f'''
       <article class="chapter{' chapter--flip' if flip else ''}">
         <div class="chapter__media">
-          <div class="chapter__photo" data-reveal="clip">{img(photo, p, photo_alt, extra=' data-parallax="0.14"')}</div>
+          <div class="chapter__photo{' chapter__photo--wide' if wide else ''}" data-reveal="clip">{img(photo, p, photo_alt, extra=' data-parallax="0.14"')}</div>
           <div class="chapter__tile" data-reveal="scale" style="--d:.25s">{img(tile, p, tile_alt)}</div>
         </div>
         <div class="chapter__body">
@@ -311,13 +317,20 @@ def home():
                 "Composer PO01 automates the techniques baristas pour by hand &mdash; one-pour, three-stage and the four-to-six method &mdash; with PID heating that holds temperature from the first drop to the last.",
                 [("40&ndash;95<small>&deg;C</small>", "PID heating range"), ("6", "Preset brewing modes"), ("1:16", "Default brew ratio")],
                 ["Automatic water supply &mdash; connect a water line for non-stop service", "Touch panel plus Bluetooth mini-program control", "Magnetic drip tray and conical filter cup for easy cleaning"],
-                "composer-po01", PRODUCTS[2]["full"])
+                "composer-po01", PRODUCTS[2]["full"]) +
+        chapter("04", True, "po6-dark", "Bincoo PO06 triple-head commercial pour-over machine", "po6-main", "PO06 commercial pour-over machine",
+                "PO06 &middot; Commercial Pour-Over", "Pour-over at <em>caf&eacute; speed.</em>",
+                "Three brew heads, three dedicated touch screens and PID control from 80&ndash;96&nbsp;&deg;C let PO06 brew three specialty pour-overs at once &mdash; up to 90 cups an hour, each one to the same recipe.",
+                [("3", "Independent brew heads"), ("75&ndash;90", "Cups per hour"), ("48", "Saved recipes")],
+                ["Three colour touch screens &mdash; direct control of every station", "Up to 6 programmable pouring stages, with bloom and pause control", "Rapid flow-through heating and direct water supply for continuous service"],
+                "po06", PRODUCTS[3]["full"], wide=True)
     )
 
     gallery = [("s2-life-espresso", "S2 Pro Trailblazer", "Espresso"), ("po-life-kitchen", "Automatic Pour-Over", "Home office"),
                ("cp-duo", "Composer PO01", "Duo service"), ("s2-life-steam", "S2 Pro Trailblazer", "Steam"),
                ("po-life-counter", "Automatic Pour-Over", "Counter"), ("cp-life-white", "Composer PO01", "Café bar"),
-               ("s2-life-portafilter", "S2 Pro Trailblazer", "58 mm"), ("po-life-beans", "Automatic Pour-Over", "Fresh ground")]
+               ("s2-life-portafilter", "S2 Pro Trailblazer", "58 mm"), ("po-life-beans", "Automatic Pour-Over", "Fresh ground"),
+               ("po6-angle", "PO06", "Commercial"), ("po6-dark", "PO06", "Triple-head")]
     hitems = "".join(f'<figure class="hscroll__item">{img(n, p, f"{a} — {b}")}<figcaption>{a}<span>{b}</span></figcaption></figure>' for n, a, b in gallery)
 
     segs = [("cup", "Caf&eacute;s &amp; roasteries", "Consistent espresso and pour-over that keep pace with a busy bar, shift after shift."),
@@ -369,7 +382,7 @@ def home():
             <a class="btn btn--ghost" href="#inquiry">Find a distributor</a>
           </div>
           <div class="hero__meta" data-intro style="--d:.85s">
-            <div><strong>3</strong><span>Flagship machines</span></div>
+            <div><strong>4</strong><span>Flagship machines</span></div>
             <div><strong>Official</strong><span>Authorized distributors</span></div>
             <div><strong>MENA</strong><span>Regional coverage</span></div>
           </div>
@@ -399,9 +412,9 @@ def home():
         <div class="section-head section-head--split">
           <div style="display:grid;gap:22px">
             <span class="eyebrow" data-reveal>The collection</span>
-            <h2 data-split>Three machines. <em>One standard</em> of precision.</h2>
+            <h2 data-split>Four machines. <em>One standard</em> of precision.</h2>
           </div>
-          <p class="lead" data-reveal>Our launch line-up brings Bincoo&rsquo;s most advanced brewers to the region &mdash; from dual-boiler espresso to fully automatic pour-over. Prices are retail references; final pricing is set by the authorized distributor in each market.</p>
+          <p class="lead" data-reveal>Our launch line-up brings Bincoo&rsquo;s most advanced brewers to the region &mdash; from dual-boiler espresso to fully automatic pour-over and the triple-head PO06 for commercial service. Prices are retail references; final pricing is set by the authorized distributor in each market.</p>
         </div>
         <div class="products-grid" data-stagger=".12">{cards}
         </div>
@@ -640,6 +653,55 @@ PDP = {
            ("Package", "32 &times; 26 &times; 46 cm &middot; 12 kg"),
            ("Colours", "Black &middot; White")],
     recipes=None),
+ "po06": dict(
+    desc="Bincoo PO06 triple-head commercial automatic pour-over coffee machine: three brew heads with independent touch screens, PID 80–96 °C, up to 6 pour stages, 48 recipes and 75–90 cups per hour. Available through authorized distributors in MENA.",
+    lead="A commercial automatic pour-over machine with three independent brew heads, three colour touch screens and programmable multi-stage pouring &mdash; built for specialty caf&eacute;s, roasteries, hotels, restaurants and high-volume coffee service.",
+    thumbs=[("po6-main", "contain", "PO06 commercial pour-over machine"), ("po6-angle", "cover", "PO06 from a three-quarter angle"),
+            ("po6-front", "cover", "PO06 front view with three touch screens"), ("po6-dark", "cover", "PO06 on a dark background"),
+            ("po6-screens", "cover", "PO06 touch screens and drippers"), ("po6-rear", "cover", "PO06 rear view")],
+    colors=[("Black", "po6-main")],
+    configs=None,
+    keyfacts=[("Brew heads", "3, independently controlled"), ("Capacity", "75&ndash;90 cups / hour"), ("Temperature", "PID, 80&ndash;96 &deg;C (&plusmn;1 &deg;C)"), ("Recipes", "Up to 48 (16 per head)")],
+    features=[
+      ("po6-angle", "Three brews. <em>One rhythm.</em>", "Three brew heads work at the same time, each with its own touch screen and independent control. Brew three different coffees at once and keep the bar moving &mdash; up to 75&ndash;90 cups an hour.",
+       ["3 brew heads with independent head control", "2:30&ndash;4:00 min brew time per cup"]),
+      ("po6-screens", "A screen for <em>every station.</em>", "Three dedicated colour touch screens show live brew progress, water temperature, current flow and the active sequence. Select a saved recipe and the whole brew runs with a single command.",
+       ["Live brewing overview on every head", "One-touch brewing from saved profiles"]),
+      ("po6-front", "Every pour, <em>programmable.</em>", "Build recipes with up to six pouring stages, programmable bloom volume, bloom time and pause intervals, and flow of up to 5.0&nbsp;mL/s per head &mdash; held at 80&ndash;96&nbsp;&deg;C by electronic PID within &plusmn;1&nbsp;&deg;C.",
+       ["Up to 6 pour stages per recipe", "16 recipes per head, 48 in total"]),
+      ("po6-dark", "Built for <em>non-stop service.</em>", "Rapid flow-through heating handles back-to-back brewing, a direct water connection keeps it running all day, and each head has its own rinse function. The body is stainless steel and aluminium.",
+       ["Direct water connection", "Per-head rinse function"]),
+    ],
+    specs=[("Product type", "Commercial automatic pour-over coffee machine"),
+           ("Model", "PO06"),
+           ("Brewing heads", "3, with independent head control"),
+           ("Brewing operation", "Fully automatic &middot; simultaneous brewing on all 3 heads"),
+           ("Displays", "3 &times; colour touch displays"),
+           ("Temperature control", "Electronic PID"),
+           ("Brewing temperature", "80&ndash;96 &deg;C"),
+           ("Temperature stability", "&plusmn;1 &deg;C"),
+           ("Brew volume", "150&ndash;600 mL per head"),
+           ("Pour stages", "Up to 6 per recipe"),
+           ("Flow rate", "Up to 5.0 mL/s per head"),
+           ("Bloom, pour volume &amp; intervals", "Programmable"),
+           ("Recipe memory", "Up to 16 recipes per head &middot; 48 in total"),
+           ("Heating system", "Rapid flow-through heating"),
+           ("Pump system", "3 precision pumps"),
+           ("Water supply", "Direct water connection &middot; external water source optional"),
+           ("Rinse function", "Per-head rinse"),
+           ("Dripper compatibility", "Commercial pour-over drippers"),
+           ("Brew time", "2:30&ndash;4:00 min"),
+           ("Brewing capacity", "75&ndash;90 cups per hour"),
+           ("Main body material", "Stainless steel / aluminium"),
+           ("Installation", "Countertop"),
+           ("Power supply", "220&ndash;240 V &middot; 50&ndash;60 Hz"),
+           ("Rated power", "3400 W"),
+           ("Recommended circuit", "Dedicated 16 A"),
+           ("Dimensions (W &times; D &times; H)", "780 &times; 430 &times; 640 mm"),
+           ("Net weight", "40&ndash;45 kg"),
+           ("Application", "Caf&eacute;s &middot; Roasteries &middot; Hotels &middot; Restaurants &middot; Specialty coffee bars"),
+           ("Colours", "Black")],
+    recipes=None),
  "composer-po01": dict(
     desc="Bincoo Composer PO01 automatic pour-over coffee maker: PID heating 40–95 °C, six brewing modes, three professional pour techniques and automatic water supply. Available through authorized distributors in MENA.",
     lead="An automatic pour-over brewer that reproduces professional hand-pour techniques. PID heating from 40&ndash;95&nbsp;&deg;C, six preset brewing modes, a dynamic brewing system and automatic water supply for non-stop service.",
@@ -671,6 +733,14 @@ PDP = {
              ("Four-to-six", "15 g &middot; 92 &deg;C &middot; 1:16 &middot; 240 ml", "After blooming, the remaining water is divided into four pours.", "High sweetness and body &mdash; for advanced brewers, light to medium roasts.")]),
 }
 
+def feature_shape(name, k):
+    """Landscape photos get a landscape frame instead of being cropped square."""
+    from PIL import Image
+    with Image.open(os.path.join(SITE, "assets", "img", "products", name + ".webp")) as im:
+        if im.width / im.height > 1.3:
+            return " feature__media--wide"
+    return " feature__media--portrait" if k % 2 else ""
+
 def product_page(slug):
     pr = BY_SLUG[slug]; d = PDP[slug]; p = "../"
     thumbs = "".join(
@@ -686,7 +756,7 @@ def product_page(slug):
     keyfacts = "".join(f'<div><small>{a}</small><strong>{b}</strong></div>' for a, b in d["keyfacts"])
     feats = "".join(f'''
         <article class="feature">
-          <div class="feature__media{' feature__media--portrait' if k % 2 else ''}" data-reveal="clip">{img(im, p, '', extra=' data-parallax="0.1"')}</div>
+          <div class="feature__media{feature_shape(im, k)}" data-reveal="clip">{img(im, p, '', extra=' data-parallax="0.1"')}</div>
           <div class="feature__body">
             <span class="feature__n" data-reveal>0{k+1}</span>
             <h2 class="h2" data-split>{t}</h2>
