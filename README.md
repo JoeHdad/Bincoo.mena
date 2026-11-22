@@ -12,9 +12,10 @@ Bincoo MENA sells only through authorized distributors: no online checkout and n
 | الصفحة | الملف |
 |---|---|
 | الرئيسية (المنتجات، For Business، About، FAQ، نموذج طلب عرض السعر) | `index.html` |
-| S2 Pro Trailblazer | `products/s2-pro-trailblazer.html` |
-| Automatic Pour-Over | `products/automatic-pour-over.html` |
-| Composer PO01 | `products/composer-po01.html` |
+| Lucid (ماكينة إسبريسو) | `products/lucid.html` |
+| Orchestra (Pour-Over بمطحنة) | `products/orchestra.html` |
+| Orbit (Pour-Over أوتوماتيكي) | `products/orbit.html` |
+| Harmony (تجارية بتلات رؤوس) | `products/harmony.html` |
 | صفحة الخطأ 404 | `404.html` |
 
 - **التصميم:** `assets/css/style.css` (فيه الوضعين الفاتح والداكن، والأنيميشن، والتصميم المتجاوب للموبايل)
