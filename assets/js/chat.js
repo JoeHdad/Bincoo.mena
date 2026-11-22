@@ -10,7 +10,7 @@
   const STORE = "bm-chat-v1";
   const COUNTRIES = ["Algeria", "Bahrain", "Egypt", "Iraq", "Jordan", "Kuwait", "Lebanon", "Libya", "Morocco", "Oman", "Palestine", "Qatar", "Saudi Arabia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen", "Other"];
   const GREETING = "Hi! I'm the Bincoo MENA assistant. Ask me about our machines, their specs, or how to buy in your market.\n\nمرحباً! اسألني عن ماكينات Bincoo ومواصفاتها وطريقة الشراء في بلدك.";
-  const CHIPS = ["Compare the 3 machines", "Which machine suits a café?", "How can I buy?", "Become a distributor", "ما الفرق بين الماكينات؟"];
+  const CHIPS = ["Compare the machines", "Which machine suits a café?", "How can I buy?", "Become a distributor", "ما الفرق بين الماكينات؟"];
 
   const ICONS = {
     chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.1A8 8 0 1 1 20 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01" stroke-width="2.4"/></svg>',

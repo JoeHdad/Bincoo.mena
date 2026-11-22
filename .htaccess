@@ -11,6 +11,12 @@ ErrorDocument 404 /404.html
   RewriteCond %{HTTP_HOST} ^www\. [NC]
   RewriteRule ^ https://bincoo-mena.com%{REQUEST_URI} [L,R=301]
 
+  # Machines were renamed: keep old links working
+  RewriteRule ^products/s2-pro-trailblazer\.html$ /products/lucid.html [R=301,L]
+  RewriteRule ^products/automatic-pour-over\.html$ /products/orchestra.html [R=301,L]
+  RewriteRule ^products/composer-po01\.html$ /products/orbit.html [R=301,L]
+  RewriteRule ^products/po06\.html$ /products/harmony.html [R=301,L]
+
   # Block access to repository and deployment files
   RewriteRule (^|/)\.(git|cpanel\.yml) - [F,L]
   RewriteRule ^(README\.md|tools/) - [F,L]

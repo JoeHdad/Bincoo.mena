@@ -13,10 +13,10 @@
 ## Prices
 - Prices are retail reference prices in US dollars, for information only. Final pricing is set by the authorized distributor in each market.
 
-## S2 Pro Trailblazer — Smart Espresso Machine
-- Full name: Bincoo S2 Pro Trailblazer Smart Espresso Machine
+## Lucid — Smart Espresso Machine
+- Full name: Bincoo Lucid Smart Espresso Machine
 - Retail reference price: $2,200
-- Page: https://bincoo-mena.com/products/s2-pro-trailblazer.html
+- Page: https://bincoo-mena.com/products/lucid.html
 - Summary: A dual-control espresso machine with a 3.4-inch HD touch screen and Bluetooth app, triple pumps and dual instant boilers, a 58 mm professional group head and fully adjustable pressure, temperature and flow.
 - Colours: Black, White
 - Highlights:
@@ -43,10 +43,10 @@
   - Materials: 304 stainless steel, plastic, silicone
   - Colours: Black · White
 
-## Automatic Pour-Over — Grind & Brew Pour-Over
-- Full name: Bincoo Fully Automatic Smart Pour-Over Coffee Machine
+## Orchestra — Grind & Brew Pour-Over
+- Full name: Bincoo Orchestra Automatic Pour-Over Machine
 - Retail reference price: $1,100
-- Page: https://bincoo-mena.com/products/automatic-pour-over.html
+- Page: https://bincoo-mena.com/products/orchestra.html
 - Summary: A fully automatic grind-and-brew pour-over machine. A 38 mm six-star steel burr grinds fresh, then multi-stage water flow blooms, pours and drips with barista precision — controlled from a 4.3-inch HD touch screen.
 - Colours: Black, White
 - Highlights:
@@ -73,10 +73,10 @@
   - Package: 32 × 26 × 46 cm · 12 kg
   - Colours: Black · White
 
-## Composer PO01 — Automatic Pour-Over Brewer
-- Full name: Bincoo Composer PO01 Automatic Pour-Over Coffee Maker
+## Orbit — Automatic Pour-Over Brewer
+- Full name: Bincoo Orbit Automatic Pour-Over Brewer
 - Retail reference price: $650
-- Page: https://bincoo-mena.com/products/composer-po01.html
+- Page: https://bincoo-mena.com/products/orbit.html
 - Summary: An automatic pour-over brewer that reproduces professional hand-pour techniques. PID heating from 40–95 °C, six preset brewing modes, a dynamic brewing system and automatic water supply for non-stop service.
 - Colours: Black, White
 - Highlights:
@@ -99,10 +99,10 @@
   - Three-stage (15 g · 92 °C · 1:16 · 240 ml): After blooming, water is poured in three stages. Best for: More layered cup — for light to medium roasts.
   - Four-to-six (15 g · 92 °C · 1:16 · 240 ml): After blooming, the remaining water is divided into four pours. Best for: High sweetness and body — for advanced brewers, light to medium roasts.
 
-## PO06 — Commercial Pour-Over Machine
-- Full name: Bincoo PO06 Triple-Head Commercial Automatic Pour-Over Coffee Machine
+## Harmony — Commercial Pour-Over Machine
+- Full name: Bincoo Harmony Triple-Head Commercial Pour-Over Machine
 - Retail reference price: $9,950
-- Page: https://bincoo-mena.com/products/po06.html
+- Page: https://bincoo-mena.com/products/harmony.html
 - Summary: A commercial automatic pour-over machine with three independent brew heads, three colour touch screens and programmable multi-stage pouring — built for specialty cafés, roasteries, hotels, restaurants and high-volume coffee service.
 - Colours: Black
 - Highlights:
@@ -112,7 +112,6 @@
   - Built for non-stop service.: Rapid flow-through heating handles back-to-back brewing, a direct water connection keeps it running all day, and each head has its own rinse function. The body is stainless steel and aluminium.
 - Specifications:
   - Product type: Commercial automatic pour-over coffee machine
-  - Model: PO06
   - Brewing heads: 3, with independent head control
   - Brewing operation: Fully automatic · simultaneous brewing on all 3 heads
   - Displays: 3 × colour touch displays
@@ -153,6 +152,6 @@
 - Q: Are there shipping fees?
   A: There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market.
 - Q: Which versions are available?
-  A: The S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 come in black or white. The PO06 commercial machine comes in black.
+  A: The Lucid, Orchestra and Orbit come in black or white. The Harmony commercial machine comes in black.
 - Q: What power supply do the machines use?
-  A: The S2 Pro Trailblazer and Automatic Pour-Over run on 220 V / 50 Hz. The PO06 needs 220–240 V, 50–60 Hz on a dedicated 16 A circuit (3400 W). Your distributor can confirm the requirements for your market.
+  A: The Lucid and Orchestra run on 220 V / 50 Hz. The Harmony needs 220–240 V, 50–60 Hz on a dedicated 16 A circuit (3400 W). Your distributor can confirm the requirements for your market.

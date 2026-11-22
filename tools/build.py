@@ -48,33 +48,33 @@ def kuvani(cls="logo-kuvani", p=""):
 
 # ---------------------------------------------------------------- products
 PRODUCTS = [
- dict(slug="s2-pro-trailblazer", value="s2-pro", name="S2 Pro Trailblazer", title_html="S2 Pro <em>Trailblazer</em>",
-      full="Bincoo S2 Pro Trailblazer Smart Espresso Machine", cat="Smart Espresso Machine", tag="Flagship",
+ dict(slug="lucid", value="lucid", name="Lucid", title_html="Lucid",
+      full="Bincoo Lucid Smart Espresso Machine", cat="Smart Espresso Machine", tag="Flagship",
       card_desc="Dual-boiler espresso with a 3.4&Prime; touch screen, Bluetooth app control and 3&ndash;12 bar pressure profiling.",
       price="$2,200", main="s2-black", alt="s2-white"),
- dict(slug="automatic-pour-over", value="pour-over", name="Automatic Pour-Over", title_html="Automatic <em>Pour-Over</em>",
-      full="Bincoo Fully Automatic Smart Pour-Over Coffee Machine", cat="Grind &amp; Brew Pour-Over", tag="Grind &amp; Brew",
+ dict(slug="orchestra", value="orchestra", name="Orchestra", title_html="Orchestra",
+      full="Bincoo Orchestra Automatic Pour-Over Machine", cat="Grind &amp; Brew Pour-Over", tag="Grind &amp; Brew",
       card_desc="Grinds, blooms and pours on its own &mdash; barista-quality pour-over in about three minutes.",
       price="$1,100", main="po-black", alt="po-white"),
- dict(slug="composer-po01", value="composer-po01", name="Composer PO01", title_html="Composer <em>PO01</em>",
-      full="Bincoo Composer PO01 Automatic Pour-Over Coffee Maker", cat="Automatic Pour-Over Brewer", tag="Compact",
+ dict(slug="orbit", value="orbit", name="Orbit", title_html="Orbit",
+      full="Bincoo Orbit Automatic Pour-Over Brewer", cat="Automatic Pour-Over Brewer", tag="Compact",
       card_desc="Pro pour techniques, automated &mdash; PID heating from 40&ndash;95&nbsp;&deg;C and six brewing modes.",
       price="$650", main="cp-black", alt=None),
- dict(slug="po06", value="po06", name="PO06", title_html="PO06 <em>Triple-Head</em>",
-      full="Bincoo PO06 Triple-Head Commercial Automatic Pour-Over Coffee Machine", cat="Commercial Pour-Over Machine", tag="Commercial",
+ dict(slug="harmony", value="harmony", name="Harmony", title_html="Harmony",
+      full="Bincoo Harmony Triple-Head Commercial Pour-Over Machine", cat="Commercial Pour-Over Machine", tag="Commercial",
       card_desc="Three brew heads, three touch screens and up to 90 cups an hour &mdash; automated pour-over for busy caf&eacute;s.",
       price="$9,950", main="po6-main", alt=None),
 ]
 BY_SLUG = {p["slug"]: p for p in PRODUCTS}
 
 HERO = [
- dict(slug="s2-pro-trailblazer", name="S2 Pro Trailblazer", image="s2-black", alt="Bincoo S2 Pro Trailblazer smart espresso machine in black",
+ dict(slug="lucid", name="Lucid", logo="lucid.svg", image="s2-black", alt="Bincoo Lucid smart espresso machine in black",
       chips=[(I["screen"], "3.4&Prime; touch screen + app"), (I["gauge"], "3&ndash;12 bar profiling"), ("58", "mm professional group head")]),
- dict(slug="automatic-pour-over", name="Automatic Pour-Over", image="po-black", alt="Bincoo Automatic Pour-Over grind and brew machine in black",
+ dict(slug="orchestra", name="Orchestra", logo="orchestra.webp", image="po-black", alt="Bincoo Orchestra grind and brew pour-over machine in black",
       chips=[(I["screen"], "4.3&Prime; HD touch screen"), ("80", "step burr grinder"), ("3&prime;", "Bean to cup in ~3 min")]),
- dict(slug="composer-po01", name="Composer PO01", image="cp-black", alt="Bincoo Composer PO01 automatic pour-over brewer in black",
+ dict(slug="orbit", name="Orbit", logo="orbit.webp", image="cp-black", alt="Bincoo Orbit automatic pour-over brewer in black",
       chips=[(I["screen"], "6 preset brewing modes"), (I["gauge"], "PID 40&ndash;95 &deg;C"), ("H&#8322;O", "Automatic water supply")]),
- dict(slug="po06", name="PO06 Commercial", image="po6-main", alt="Bincoo PO06 triple-head commercial automatic pour-over machine",
+ dict(slug="harmony", name="Harmony", logo="harmony.svg", image="po6-main", alt="Bincoo Harmony triple-head commercial pour-over machine",
       chips=[(I["screen"], "3 heads &middot; 3 touch screens"), ("90", "cups per hour"), (I["gauge"], "PID 80&ndash;96 &deg;C")]),
 ]
 
@@ -83,8 +83,8 @@ FAQS = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates excl
         ("Which countries do you cover?", "Bincoo MENA covers the Middle East &amp; North Africa. Tell us your country and we&rsquo;ll point you to the authorized distributor there, or talk about distribution if there isn&rsquo;t one yet."),
         ("How can I become an authorized distributor?", "Contact us with your company details and the market you cover. Distributor terms, including minimum orders, depend on the product and the market, and our team will walk you through them."),
         ("Are there shipping fees?", "There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market."),
-        ("Which versions are available?", "The S2 Pro Trailblazer, Automatic Pour-Over and Composer PO01 come in black or white. The PO06 commercial machine comes in black."),
-        ("What power supply do the machines use?", "The S2 Pro Trailblazer and Automatic Pour-Over run on 220&nbsp;V / 50&nbsp;Hz. The PO06 needs 220&ndash;240&nbsp;V, 50&ndash;60&nbsp;Hz on a dedicated 16&nbsp;A circuit (3400&nbsp;W). Your distributor can confirm the requirements for your market.")]
+        ("Which versions are available?", "The Lucid, Orchestra and Orbit come in black or white. The Harmony commercial machine comes in black."),
+        ("What power supply do the machines use?", "The Lucid and Orchestra run on 220&nbsp;V / 50&nbsp;Hz. The Harmony needs 220&ndash;240&nbsp;V, 50&ndash;60&nbsp;Hz on a dedicated 16&nbsp;A circuit (3400&nbsp;W). Your distributor can confirm the requirements for your market.")]
 
 def img(name, p="", alt="", cls="", lazy=True, extra=""):
     c = f' class="{cls}"' if cls else ""
@@ -274,7 +274,7 @@ def home():
         + "</div>" for k, h in enumerate(HERO))
     dots = "".join(
         f'<button class="hero__dot{" is-active" if k == 0 else ""}" type="button" data-slide="{k}" data-href="products/{h["slug"]}.html" data-name="{h["name"]}" aria-label="Show {h["name"]}" aria-current="{"true" if k == 0 else "false"}">'
-        f'<span class="hero__dot-bar"><i></i></span><span class="hero__dot-label">{h["name"]}</span></button>'
+        f'<span class="hero__dot-bar"><i></i></span><span class="hero__dot-logo hero__dot-logo--{h["slug"]}"><img class="mlogo mlogo--light" src="{p}assets/img/brand/machines/{h["logo"].replace(".", "-black.")}" alt="" aria-hidden="true"><img class="mlogo mlogo--dark" src="{p}assets/img/brand/machines/{h["logo"].replace(".", "-white.")}" alt="" aria-hidden="true"><span class="sr-only">{h["name"]}</span></span></button>'
         for k, h in enumerate(HERO))
 
     def chapter(n, flip, photo, photo_alt, tile, tile_alt, eyebrow, title, text, stats, ticks, slug, full, wide=False):
@@ -300,37 +300,37 @@ def home():
       </article>'''
 
     chapters = (
-        chapter("01", False, "s2-life-white", "Bincoo S2 Pro Trailblazer in white pulling an espresso shot", "s2-black", "S2 Pro Trailblazer in black",
-                "S2 Pro Trailblazer &middot; Espresso", "Espresso with <em>true intelligence.</em>",
+        chapter("01", False, "s2-life-white", "Bincoo Lucid in white pulling an espresso shot", "s2-black", "Lucid in black",
+                "Lucid &middot; Espresso", "Espresso with <em>true intelligence.</em>",
                 "Two ways to control every shot: a 3.4-inch HD touch screen on the machine, or the Bincoo app over Bluetooth. Pressure, temperature, pre-infusion and volume are all yours to tune.",
                 [("3&ndash;12<small>bar</small>", "Adjustable extraction pressure"), ("58<small>mm</small>", "Professional thermal group head"), ("88&ndash;96<small>&deg;C</small>", "Extraction temperature")],
                 ["Triple pumps and dual instant boilers &mdash; brew and steam at the same time", "4 NTC sensors with PID for rock-steady temperature", "One-touch puck clearing and automatic water supply"],
-                "s2-pro-trailblazer", PRODUCTS[0]["full"]) +
-        chapter("02", True, "po-life-touch", "Bincoo Automatic Pour-Over machine being operated on a kitchen counter", "po-white", "Automatic Pour-Over in white",
-                "Automatic Pour-Over &middot; Grind &amp; Brew", "The pour-over ritual, <em>perfected by machine.</em>",
+                "lucid", PRODUCTS[0]["full"]) +
+        chapter("02", True, "po-life-touch", "Bincoo Orchestra machine being operated on a kitchen counter", "po-white", "Orchestra in white",
+                "Orchestra &middot; Grind &amp; Brew", "The pour-over ritual, <em>perfected by machine.</em>",
                 "It grinds fresh with a 38&nbsp;mm six-star steel burr, then blooms, pours and drips in precise stages. Build recipes in the Bincoo mini-program and sync them straight to the 4.3-inch screen.",
                 [("80", "Grind adjustment steps"), ("4.3<small>&Prime;</small>", "HD IPS touch screen"), ("~3<small>min</small>", "Bean to cup")],
                 ["Adjustable 60&ndash;120 RPM grinding with plasma static elimination", "Coffee, tea and hot water from one machine", "All-metal body, food-grade glass dripper and carafe"],
-                "automatic-pour-over", PRODUCTS[1]["full"]) +
-        chapter("03", False, "cp-life-dark", "Bincoo Composer PO01 brewing pour-over coffee beside an iced coffee", "cp-black", "Composer PO01 in black",
-                "Composer PO01 &middot; Automatic Pour-Over", "Hand-pour craft, <em>on repeat.</em>",
-                "Composer PO01 automates the techniques baristas pour by hand &mdash; one-pour, three-stage and the four-to-six method &mdash; with PID heating that holds temperature from the first drop to the last.",
+                "orchestra", PRODUCTS[1]["full"]) +
+        chapter("03", False, "cp-life-dark", "Bincoo Orbit brewing pour-over coffee beside an iced coffee", "cp-black", "Orbit in black",
+                "Orbit &middot; Automatic Pour-Over", "Hand-pour craft, <em>on repeat.</em>",
+                "Orbit automates the techniques baristas pour by hand &mdash; one-pour, three-stage and the four-to-six method &mdash; with PID heating that holds temperature from the first drop to the last.",
                 [("40&ndash;95<small>&deg;C</small>", "PID heating range"), ("6", "Preset brewing modes"), ("1:16", "Default brew ratio")],
                 ["Automatic water supply &mdash; connect a water line for non-stop service", "Touch panel plus Bluetooth mini-program control", "Magnetic drip tray and conical filter cup for easy cleaning"],
-                "composer-po01", PRODUCTS[2]["full"]) +
-        chapter("04", True, "po6-dark", "Bincoo PO06 triple-head commercial pour-over machine", "po6-main", "PO06 commercial pour-over machine",
-                "PO06 &middot; Commercial Pour-Over", "Pour-over at <em>caf&eacute; speed.</em>",
-                "Three brew heads, three dedicated touch screens and PID control from 80&ndash;96&nbsp;&deg;C let PO06 brew three specialty pour-overs at once &mdash; up to 90 cups an hour, each one to the same recipe.",
+                "orbit", PRODUCTS[2]["full"]) +
+        chapter("04", True, "po6-dark", "Bincoo Harmony triple-head commercial pour-over machine", "po6-main", "Harmony commercial pour-over machine",
+                "Harmony &middot; Commercial Pour-Over", "Pour-over at <em>caf&eacute; speed.</em>",
+                "Three brew heads, three dedicated touch screens and PID control from 80&ndash;96&nbsp;&deg;C let Harmony brew three specialty pour-overs at once &mdash; up to 90 cups an hour, each one to the same recipe.",
                 [("3", "Independent brew heads"), ("75&ndash;90", "Cups per hour"), ("48", "Saved recipes")],
                 ["Three colour touch screens &mdash; direct control of every station", "Up to 6 programmable pouring stages, with bloom and pause control", "Rapid flow-through heating and direct water supply for continuous service"],
-                "po06", PRODUCTS[3]["full"], wide=True)
+                "harmony", PRODUCTS[3]["full"], wide=True)
     )
 
-    gallery = [("s2-life-espresso", "S2 Pro Trailblazer", "Espresso"), ("po-life-kitchen", "Automatic Pour-Over", "Home office"),
-               ("cp-duo", "Composer PO01", "Duo service"), ("s2-life-steam", "S2 Pro Trailblazer", "Steam"),
-               ("po-life-counter", "Automatic Pour-Over", "Counter"), ("cp-life-white", "Composer PO01", "Café bar"),
-               ("s2-life-portafilter", "S2 Pro Trailblazer", "58 mm"), ("po-life-beans", "Automatic Pour-Over", "Fresh ground"),
-               ("po6-angle", "PO06", "Commercial"), ("po6-dark", "PO06", "Triple-head")]
+    gallery = [("s2-life-espresso", "Lucid", "Espresso"), ("po-life-kitchen", "Orchestra", "Home office"),
+               ("cp-duo", "Orbit", "Duo service"), ("s2-life-steam", "Lucid", "Steam"),
+               ("po-life-counter", "Orchestra", "Counter"), ("cp-life-white", "Orbit", "Café bar"),
+               ("s2-life-portafilter", "Lucid", "58 mm"), ("po-life-beans", "Orchestra", "Fresh ground"),
+               ("po6-angle", "Harmony", "Commercial"), ("po6-dark", "Harmony", "Triple-head")]
     hitems = "".join(f'<figure class="hscroll__item">{img(n, p, f"{a} — {b}")}<figcaption>{a}<span>{b}</span></figcaption></figure>' for n, a, b in gallery)
 
     segs = [("cup", "Caf&eacute;s &amp; roasteries", "Consistent espresso and pour-over that keep pace with a busy bar, shift after shift."),
@@ -414,7 +414,7 @@ def home():
             <span class="eyebrow" data-reveal>The collection</span>
             <h2 data-split>Four machines. <em>One standard</em> of precision.</h2>
           </div>
-          <p class="lead" data-reveal>Our launch line-up brings Bincoo&rsquo;s most advanced brewers to the region &mdash; from dual-boiler espresso to fully automatic pour-over and the triple-head PO06 for commercial service. Prices are retail references; final pricing is set by the authorized distributor in each market.</p>
+          <p class="lead" data-reveal>Our launch line-up brings Bincoo&rsquo;s most advanced brewers to the region &mdash; from dual-boiler espresso to fully automatic pour-over and the triple-head Harmony for commercial service. Prices are retail references; final pricing is set by the authorized distributor in each market.</p>
         </div>
         <div class="products-grid" data-stagger=".12">{cards}
         </div>
@@ -436,10 +436,10 @@ def home():
     <section class="section--tight">
       <div class="container">
         <div class="specband" data-stagger=".1">
-          <div class="specband__item" data-reveal><em>S2 Pro</em><strong><span data-count="58">58</span><small>mm</small></strong><span>Professional thermal group head</span></div>
-          <div class="specband__item" data-reveal><em>S2 Pro</em><strong><span data-count="12">12</span><small>bar</small></strong><span>Maximum adjustable extraction pressure</span></div>
-          <div class="specband__item" data-reveal><em>Pour-Over</em><strong><span data-count="80">80</span><small>steps</small></strong><span>Grind adjustment with a 38&nbsp;mm burr</span></div>
-          <div class="specband__item" data-reveal><em>Composer</em><strong><span data-count="95">95</span><small>&deg;C</small></strong><span>Instant PID heating, from 40&nbsp;&deg;C</span></div>
+          <div class="specband__item" data-reveal><em>Lucid</em><strong><span data-count="58">58</span><small>mm</small></strong><span>Professional thermal group head</span></div>
+          <div class="specband__item" data-reveal><em>Lucid</em><strong><span data-count="12">12</span><small>bar</small></strong><span>Maximum adjustable extraction pressure</span></div>
+          <div class="specband__item" data-reveal><em>Orchestra</em><strong><span data-count="80">80</span><small>steps</small></strong><span>Grind adjustment with a 38&nbsp;mm burr</span></div>
+          <div class="specband__item" data-reveal><em>Orbit</em><strong><span data-count="95">95</span><small>&deg;C</small></strong><span>Instant PID heating, from 40&nbsp;&deg;C</span></div>
         </div>
       </div>
     </section>
@@ -488,7 +488,7 @@ def home():
     <section class="section section--alt" id="about">
       <div class="container about">
         <div class="about__media">
-          <div class="photo" data-reveal="clip">{img("s2-life-pitcher", p, "Barista steaming milk beside the Bincoo S2 Pro Trailblazer", extra=' data-parallax="0.1"')}</div>
+          <div class="photo" data-reveal="clip">{img("s2-life-pitcher", p, "Barista steaming milk beside the Bincoo Lucid", extra=' data-parallax="0.1"')}</div>
           <div class="about__card" data-reveal style="--d:.3s">
             {kuvani(p=p)}
             <p>Exclusive partner of Bincoo for the Middle East &amp; North Africa.</p>
@@ -557,7 +557,7 @@ def home():
             <div class="field"><label for="f-email">Email <span class="req">*</span></label><input class="input" id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@company.com"><span class="field__error">Please enter a valid email.</span></div>
             <div class="field"><label for="f-phone">Phone / WhatsApp <span class="req">*</span></label><input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+974 ..."><span class="field__error">Please enter a phone number.</span></div>
             <fieldset class="field field--full"><legend>Machines of interest</legend><div class="checks" style="margin-top:8px">{checks}</div></fieldset>
-            <div class="field field--full"><label for="f-qty">Estimated quantity</label><input class="input" id="f-qty" name="quantity" placeholder="e.g. 6 &times; S2 Pro (black), 2 &times; Composer PO01"></div>
+            <div class="field field--full"><label for="f-qty">Estimated quantity</label><input class="input" id="f-qty" name="quantity" placeholder="e.g. 6 &times; Lucid (black), 2 &times; Orbit"></div>
             <div class="field field--full"><label for="f-msg">Message</label><textarea class="textarea" id="f-msg" name="message" placeholder="Tell us about your venue, timeline or any questions."></textarea></div>
           </div>
           <div class="form__actions">
@@ -576,14 +576,14 @@ def home():
 
 # ---------------------------------------------------------------- product pages
 PDP = {
- "s2-pro-trailblazer": dict(
-    desc="Bincoo S2 Pro Trailblazer smart espresso machine: 3.4\" touch screen and Bluetooth app control, triple pumps with dual instant boilers, 58 mm group head and 3–12 bar pressure profiling. Available through authorized distributors in MENA.",
+ "lucid": dict(
+    desc="Bincoo Lucid smart espresso machine: 3.4\" touch screen and Bluetooth app control, triple pumps with dual instant boilers, 58 mm group head and 3–12 bar pressure profiling. Available through authorized distributors in MENA.",
     lead="A dual-control espresso machine with a 3.4-inch HD touch screen and Bluetooth app, triple pumps and dual instant boilers, a 58&nbsp;mm professional group head and fully adjustable pressure, temperature and flow.",
-    thumbs=[("s2-black", "contain", "S2 Pro Trailblazer in black"), ("s2-white", "contain", "S2 Pro Trailblazer in white"),
-            ("s2-life-espresso", "cover", "S2 Pro pulling a shot on a bar counter"), ("s2-life-white", "cover", "S2 Pro in white with steam"),
-            ("s2-life-pitcher", "cover", "Steaming milk with the S2 Pro"), ("s2-life-portafilter", "cover", "58 mm portafilter detail"),
-            ("s2-life-steam", "cover", "S2 Pro steam in action"), ("s2-app", "cover", "Touch screen and mobile app control"),
-            ("s2-cutaway", "cover", "Thermal group head cutaway"), ("s2-life-grinder", "cover", "S2 Pro with grinder at home")],
+    thumbs=[("s2-black", "contain", "Lucid in black"), ("s2-white", "contain", "Lucid in white"),
+            ("s2-life-espresso", "cover", "Lucid pulling a shot on a bar counter"), ("s2-life-white", "cover", "Lucid in white with steam"),
+            ("s2-life-pitcher", "cover", "Steaming milk with the Lucid"), ("s2-life-portafilter", "cover", "58 mm portafilter detail"),
+            ("s2-life-steam", "cover", "Lucid steam in action"), ("s2-app", "cover", "Touch screen and mobile app control"),
+            ("s2-cutaway", "cover", "Thermal group head cutaway"), ("s2-life-grinder", "cover", "Lucid with grinder at home")],
     colors=[("Black", "s2-black"), ("White", "s2-white")],
     configs=None,
     keyfacts=[("Control", "3.4&Prime; touch screen + app"), ("Pressure", "3&ndash;12 bar, adjustable"), ("Group head", "58 mm thermal"), ("Boilers", "Triple pumps, dual instant")],
@@ -616,12 +616,12 @@ PDP = {
            ("Materials", "304 stainless steel, plastic, silicone"),
            ("Colours", "Black &middot; White")],
     recipes=None),
- "automatic-pour-over": dict(
-    desc="Bincoo Fully Automatic Smart Pour-Over Coffee Machine: built-in 38 mm burr grinder with 80 settings, 4.3\" HD touch screen, custom recipes and multi-stage pouring. Available through authorized distributors in MENA.",
+ "orchestra": dict(
+    desc="Bincoo Orchestra fully automatic smart pour-over coffee machine: built-in 38 mm burr grinder with 80 settings, 4.3\" HD touch screen, custom recipes and multi-stage pouring. Available through authorized distributors in MENA.",
     lead="A fully automatic grind-and-brew pour-over machine. A 38&nbsp;mm six-star steel burr grinds fresh, then multi-stage water flow blooms, pours and drips with barista precision &mdash; controlled from a 4.3-inch HD touch screen.",
-    thumbs=[("po-black", "contain", "Automatic Pour-Over in black"), ("po-white", "contain", "Automatic Pour-Over in white"),
+    thumbs=[("po-black", "contain", "Orchestra in black"), ("po-white", "contain", "Orchestra in white"),
             ("po-life-touch", "cover", "Selecting a recipe on the touch screen"), ("po-life-beans", "cover", "Adding beans to the hopper"),
-            ("po-life-counter", "cover", "Automatic Pour-Over on a wooden counter"), ("po-life-kitchen", "cover", "Automatic Pour-Over in a home kitchen")],
+            ("po-life-counter", "cover", "Orchestra on a wooden counter"), ("po-life-kitchen", "cover", "Orchestra in a home kitchen")],
     colors=[("Black", "po-black"), ("White", "po-white")],
     configs=None,
     keyfacts=[("Grinder", "38 mm six-star steel burr"), ("Grind settings", "80 steps, 60&ndash;120 RPM"), ("Display", "4.3&Prime; HD IPS touch screen"), ("Drinks", "Coffee &middot; Tea &middot; Hot water")],
@@ -653,12 +653,12 @@ PDP = {
            ("Package", "32 &times; 26 &times; 46 cm &middot; 12 kg"),
            ("Colours", "Black &middot; White")],
     recipes=None),
- "po06": dict(
-    desc="Bincoo PO06 triple-head commercial automatic pour-over coffee machine: three brew heads with independent touch screens, PID 80–96 °C, up to 6 pour stages, 48 recipes and 75–90 cups per hour. Available through authorized distributors in MENA.",
+ "harmony": dict(
+    desc="Bincoo Harmony triple-head commercial automatic pour-over coffee machine: three brew heads with independent touch screens, PID 80–96 °C, up to 6 pour stages, 48 recipes and 75–90 cups per hour. Available through authorized distributors in MENA.",
     lead="A commercial automatic pour-over machine with three independent brew heads, three colour touch screens and programmable multi-stage pouring &mdash; built for specialty caf&eacute;s, roasteries, hotels, restaurants and high-volume coffee service.",
-    thumbs=[("po6-main", "contain", "PO06 commercial pour-over machine"), ("po6-angle", "cover", "PO06 from a three-quarter angle"),
-            ("po6-front", "cover", "PO06 front view with three touch screens"), ("po6-dark", "cover", "PO06 on a dark background"),
-            ("po6-rear", "cover", "PO06 rear view")],
+    thumbs=[("po6-main", "contain", "Harmony commercial pour-over machine"), ("po6-angle", "cover", "Harmony from a three-quarter angle"),
+            ("po6-front", "cover", "Harmony front view with three touch screens"), ("po6-dark", "cover", "Harmony on a dark background"),
+            ("po6-rear", "cover", "Harmony rear view")],
     colors=[("Black", "po6-main")],
     configs=None,
     keyfacts=[("Brew heads", "3, independently controlled"), ("Capacity", "75&ndash;90 cups / hour"), ("Temperature", "PID, 80&ndash;96 &deg;C (&plusmn;1 &deg;C)"), ("Recipes", "Up to 48 (16 per head)")],
@@ -673,7 +673,6 @@ PDP = {
        ["Direct water connection", "Per-head rinse function"]),
     ],
     specs=[("Product type", "Commercial automatic pour-over coffee machine"),
-           ("Model", "PO06"),
            ("Brewing heads", "3, with independent head control"),
            ("Brewing operation", "Fully automatic &middot; simultaneous brewing on all 3 heads"),
            ("Displays", "3 &times; colour touch displays"),
@@ -702,11 +701,11 @@ PDP = {
            ("Application", "Caf&eacute;s &middot; Roasteries &middot; Hotels &middot; Restaurants &middot; Specialty coffee bars"),
            ("Colours", "Black")],
     recipes=None),
- "composer-po01": dict(
-    desc="Bincoo Composer PO01 automatic pour-over coffee maker: PID heating 40–95 °C, six brewing modes, three professional pour techniques and automatic water supply. Available through authorized distributors in MENA.",
+ "orbit": dict(
+    desc="Bincoo Orbit automatic pour-over coffee maker: PID heating 40–95 °C, six brewing modes, three professional pour techniques and automatic water supply. Available through authorized distributors in MENA.",
     lead="An automatic pour-over brewer that reproduces professional hand-pour techniques. PID heating from 40&ndash;95&nbsp;&deg;C, six preset brewing modes, a dynamic brewing system and automatic water supply for non-stop service.",
-    thumbs=[("cp-black", "contain", "Composer PO01 in black"), ("cp-life-dark", "cover", "Composer PO01 in black on a café counter"),
-            ("cp-life-white", "cover", "Composer PO01 in white on a café counter"), ("cp-duo", "cover", "Composer PO01 in black and white")],
+    thumbs=[("cp-black", "contain", "Orbit in black"), ("cp-life-dark", "cover", "Orbit in black on a café counter"),
+            ("cp-life-white", "cover", "Orbit in white on a café counter"), ("cp-duo", "cover", "Orbit in black and white")],
     colors=[("Black", "cp-black"), ("White", "cp-life-white")],
     configs=None,
     keyfacts=[("Heating", "PID, 40&ndash;95 &deg;C"), ("Brewing modes", "6 presets"), ("Techniques", "One-pour &middot; Three-stage &middot; 4:6"), ("Water", "Automatic supply")],
