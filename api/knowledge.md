@@ -101,7 +101,7 @@
 
 ## Harmony — Commercial Pour-Over Machine
 - Full name: Bincoo Harmony Triple-Head Commercial Pour-Over Machine
-- Retail reference price: $9,950
+- Price: on request only (do not quote a figure); pricing comes from the authorized distributor in each market
 - Page: https://bincoo-mena.com/products/harmony.html
 - Summary: A commercial automatic pour-over machine with three independent brew heads, three colour touch screens and programmable multi-stage pouring — built for specialty cafés, roasteries, hotels, restaurants and high-volume coffee service.
 - Colours: Black

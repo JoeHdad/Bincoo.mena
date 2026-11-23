@@ -63,7 +63,7 @@ PRODUCTS = [
  dict(slug="harmony", value="harmony", name="Harmony", title_html="Harmony",
       full="Bincoo Harmony Triple-Head Commercial Pour-Over Machine", cat="Commercial Pour-Over Machine", tag="Commercial",
       card_desc="Three brew heads, three touch screens and up to 90 cups an hour &mdash; automated pour-over for busy caf&eacute;s.",
-      price="$9,950", main="po6-main", alt=None),
+      price=None, main="po6-main", alt=None),
 ]
 BY_SLUG = {p["slug"]: p for p in PRODUCTS}
 
@@ -108,8 +108,8 @@ def card(pr, i, p=""):
           <h3 class="p-card__name">{pr['name']}</h3>
           <p class="p-card__desc">{pr['card_desc']}</p>
           <div class="p-card__foot">
-            <div class="price"><small>Retail ref. (USD)</small><strong>{pr['price']}</strong></div>
-            <div class="swatches" aria-label="Available in black and white"><span class="swatch swatch--black"></span><span class="swatch swatch--white"></span></div>
+            {f'<div class="price"><small>Retail ref. (USD)</small><strong>{pr["price"]}</strong></div>' if pr["price"] else '<div></div>'}
+            <div class="swatches" aria-label="Available in {' and '.join(c.lower() for c, _ in PDP[pr['slug']]['colors'])}">{''.join(f'<span class="swatch swatch--{c.lower()}"></span>' for c, _ in PDP[pr['slug']]['colors'])}</div>
           </div>
           <div class="p-card__actions">
             <a class="btn btn--sm" href="{href}">View details {I['arrow']}</a>
@@ -803,9 +803,8 @@ def product_page(slug):
           <h1 class="pdp__title" data-split>{pr['title_html']}</h1>
           <p class="lead" data-reveal>{d['lead']}</p>
           <div class="pdp__price" data-reveal>
-            <small data-price>Retail reference (USD)</small>
-            <strong data-price data-price-value>{price_val}</strong>
-            <span class="trade">Final pricing from the authorized distributor in your market</span>
+            {f'<small data-price>Retail reference (USD)</small><strong data-price data-price-value>{price_val}</strong>' if price_val else ''}
+            <span class="trade">{'Final pricing from the authorized distributor in your market' if price_val else 'Pricing on request through the authorized distributor in your market'}</span>
           </div>
           <div class="opt" data-option="color" data-reveal><span class="opt__label">Colour <span data-option-value="color"></span></span><div class="opt__row">{colors}</div></div>
           {configs}
@@ -905,7 +904,7 @@ def knowledge():
         d = PDP[pr["slug"]]
         out += [f"## {pr['name']} — {t(pr['cat'])}",
                 f"- Full name: {pr['full']}",
-                f"- Retail reference price: {pr['price']}",
+                f"- Retail reference price: {pr['price']}" if pr["price"] else "- Price: on request only (do not quote a figure); pricing comes from the authorized distributor in each market",
                 f"- Page: {DOMAIN}/products/{pr['slug']}.html",
                 f"- Summary: {t(d['lead'])}",
                 f"- Colours: {', '.join(c for c, _ in d['colors'])}"]
