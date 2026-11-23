@@ -425,7 +425,7 @@ p { margin: 0; }
 .chapter__media { position: relative; }
 .chapter__photo { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 5; background: var(--bg-2); }
 .chapter__photo img { width: 100%; height: 118%; object-fit: cover; will-change: transform; }
-.chapter__photo--wide { aspect-ratio: 4 / 3; }
+.chapter__photo--wide { aspect-ratio: 3 / 2; }
 .chapter__tile {
   position: absolute; width: 46%; aspect-ratio: 1; right: -8%; bottom: -10%;
   border-radius: var(--radius); background: var(--tile); box-shadow: var(--shadow-lg);
@@ -686,6 +686,10 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .feature__media img { width: 100%; height: 112%; object-fit: cover; }
 .feature__media--portrait { aspect-ratio: 4 / 5; }
 .feature__media--wide { aspect-ratio: 3 / 2; }
+/* Landscape product photos are shown whole: no parallax overscan that would cut the base off */
+.feature__media--wide img, .chapter__photo--wide img { height: 100%; }
+.gallery__main { transition: background-color .5s var(--ease); }
+.gallery__main img.is-photo { object-fit: contain; padding: 0; mix-blend-mode: normal; }
 .feature__body { display: grid; gap: 20px; }
 .feature__n { font-family: var(--font-display); font-style: italic; color: var(--accent); font-size: 1.1rem; }
 

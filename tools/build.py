@@ -282,7 +282,7 @@ def home():
         return f'''
       <article class="chapter{' chapter--flip' if flip else ''}">
         <div class="chapter__media">
-          <div class="chapter__photo{' chapter__photo--wide' if wide else ''}" data-reveal="clip">{img(photo, p, photo_alt, extra=' data-parallax="0.14"')}</div>
+          <div class="chapter__photo{' chapter__photo--wide' if wide else ''}" data-reveal="clip">{img(photo, p, photo_alt, extra='' if wide else ' data-parallax="0.14"')}</div>
           <div class="chapter__tile" data-reveal="scale" style="--d:.25s">{img(tile, p, tile_alt)}</div>
         </div>
         <div class="chapter__body">
@@ -656,9 +656,9 @@ PDP = {
  "harmony": dict(
     desc="Bincoo Harmony triple-head commercial automatic pour-over coffee machine: three brew heads with independent touch screens, PID 80–96 °C, up to 6 pour stages, 48 recipes and 75–90 cups per hour. Available through authorized distributors in MENA.",
     lead="A commercial automatic pour-over machine with three independent brew heads, three colour touch screens and programmable multi-stage pouring &mdash; built for specialty caf&eacute;s, roasteries, hotels, restaurants and high-volume coffee service.",
-    thumbs=[("po6-main", "contain", "Harmony commercial pour-over machine"), ("po6-angle", "cover", "Harmony from a three-quarter angle"),
-            ("po6-front", "cover", "Harmony front view with three touch screens"), ("po6-dark", "cover", "Harmony on a dark background"),
-            ("po6-rear", "cover", "Harmony rear view")],
+    thumbs=[("po6-main", "contain", "Harmony commercial pour-over machine"), ("po6-angle", "photo", "Harmony from a three-quarter angle"),
+            ("po6-front", "photo", "Harmony front view with three touch screens"), ("po6-dark", "photo", "Harmony on a dark background"),
+            ("po6-rear", "photo", "Harmony rear view")],
     colors=[("Black", "po6-main")],
     configs=None,
     keyfacts=[("Brew heads", "3, independently controlled"), ("Capacity", "75&ndash;90 cups / hour"), ("Temperature", "PID, 80&ndash;96 &deg;C (&plusmn;1 &deg;C)"), ("Recipes", "Up to 48 (16 per head)")],
@@ -732,6 +732,14 @@ PDP = {
              ("Four-to-six", "15 g &middot; 92 &deg;C &middot; 1:16 &middot; 240 ml", "After blooming, the remaining water is divided into four pours.", "High sweetness and body &mdash; for advanced brewers, light to medium roasts.")]),
 }
 
+def edge_color(name):
+    """Average colour of an image's outer border, used to fill around a whole-photo view."""
+    from PIL import Image
+    with Image.open(os.path.join(SITE, "assets", "img", "products", name + ".webp")) as im:
+        im = im.convert("RGB").resize((64, 64))
+        px = [im.getpixel((x, y)) for x in range(64) for y in range(64) if x < 2 or y < 2 or x > 61 or y > 61]
+    return "#%02x%02x%02x" % tuple(sum(c[i] for c in px) // len(px) for i in range(3))
+
 def feature_shape(name, k):
     """Landscape photos get a landscape frame instead of being cropped square."""
     from PIL import Image
@@ -743,7 +751,7 @@ def feature_shape(name, k):
 def product_page(slug):
     pr = BY_SLUG[slug]; d = PDP[slug]; p = "../"
     thumbs = "".join(
-        f'<button class="thumb{" is-active" if k == 0 else ""}" type="button" data-full="{p}assets/img/products/{n}.webp" data-fit="{fit}" data-alt="{alt}" aria-label="Show image: {alt}">'
+        f'<button class="thumb{" is-active" if k == 0 else ""}" type="button" data-full="{p}assets/img/products/{n}.webp" data-fit="{fit}"{f' data-bg="{edge_color(n)}"' if fit == "photo" else ""} data-alt="{alt}" aria-label="Show image: {alt}">'
         f'<img src="{p}assets/img/products/{n}.webp" alt="" loading="lazy" decoding="async"{" class=\"contain\"" if fit == "contain" else ""}></button>'
         for k, (n, fit, alt) in enumerate(d["thumbs"]))
     first = d["thumbs"][0]
@@ -755,7 +763,7 @@ def product_page(slug):
     keyfacts = "".join(f'<div><small>{a}</small><strong>{b}</strong></div>' for a, b in d["keyfacts"])
     feats = "".join(f'''
         <article class="feature">
-          <div class="feature__media{feature_shape(im, k)}" data-reveal="clip">{img(im, p, '', extra=' data-parallax="0.1"')}</div>
+          <div class="feature__media{feature_shape(im, k)}" data-reveal="clip">{img(im, p, '', extra='' if 'wide' in feature_shape(im, k) else ' data-parallax="0.1"')}</div>
           <div class="feature__body">
             <span class="feature__n" data-reveal>0{k+1}</span>
             <h2 class="h2" data-split>{t}</h2>

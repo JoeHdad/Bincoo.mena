@@ -331,6 +331,8 @@ const CONFIG = {
         img.src = src;
         img.alt = t.dataset.alt || "";
         img.classList.toggle("is-cover", t.dataset.fit === "cover");
+        img.classList.toggle("is-photo", t.dataset.fit === "photo");
+        mainWrap.style.backgroundColor = t.dataset.fit === "photo" ? t.dataset.bg : "";
         requestAnimationFrame(() => img.classList.remove("is-leaving"));
       };
       pre.src = src;
