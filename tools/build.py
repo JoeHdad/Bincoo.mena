@@ -63,7 +63,7 @@ PRODUCTS = [
  dict(slug="harmony", value="harmony", name="Harmony", title_html="Harmony",
       full="Bincoo Harmony Triple-Head Commercial Pour-Over Machine", cat="Commercial Pour-Over Machine", tag="Commercial",
       card_desc="Three brew heads, three touch screens and up to 90 cups an hour &mdash; automated pour-over for busy caf&eacute;s.",
-      price=None, main="po6-main", alt=None),
+      price=None, main="po6-front", alt=None),
 ]
 BY_SLUG = {p["slug"]: p for p in PRODUCTS}
 
@@ -74,7 +74,7 @@ HERO = [
       chips=[(I["screen"], "4.3&Prime; HD touch screen"), ("80", "step burr grinder"), ("3&prime;", "Bean to cup in ~3 min")]),
  dict(slug="orbit", name="Orbit", logo="orbit.webp", image="cp-black", alt="Bincoo Orbit automatic pour-over brewer in black",
       chips=[(I["screen"], "6 preset brewing modes"), (I["gauge"], "PID 40&ndash;95 &deg;C"), ("H&#8322;O", "Automatic water supply")]),
- dict(slug="harmony", name="Harmony", logo="harmony.svg", image="po6-main", alt="Bincoo Harmony triple-head commercial pour-over machine",
+ dict(slug="harmony", name="Harmony", logo="harmony.svg", image="po6-front", alt="Bincoo Harmony triple-head commercial pour-over machine",
       chips=[(I["screen"], "3 heads &middot; 3 touch screens"), ("90", "cups per hour"), (I["gauge"], "PID 80&ndash;96 &deg;C")]),
 ]
 
@@ -97,10 +97,10 @@ def card(pr, i, p=""):
     return f'''
       <article class="p-card" data-reveal>
         <a class="p-card__link" href="{href}" aria-label="View {pr['name']}"></a>
-        <div class="p-card__media">
+        <div class="p-card__media"{photo_bg(pr["main"])}>
           <span class="p-card__index">0{i}</span>
           <span class="p-card__tag">{pr['tag']}</span>
-          {img(pr["main"], p, pr["full"], "main")}
+          {img(pr["main"], p, pr["full"], "main" + (" is-photo" if is_photo(pr["main"]) else ""))}
           {alt_img}
         </div>
         <div class="p-card__body">
@@ -266,7 +266,7 @@ def home():
 
     # Hero slider: one slide per machine, each with its own three spec chips
     slides = "".join(
-        img(h["image"], p, h["alt"], "hero__slide" + (" is-active" if k == 0 else ""), lazy=False).replace(' fetchpriority="high"', ' fetchpriority="high"' if k == 0 else ' decoding="async"')
+        img(h["image"], p, h["alt"], "hero__slide" + (" is-active" if k == 0 else "") + (" hero__slide--photo" if is_photo(h["image"]) else ""), lazy=False, extra=f' data-bg="{edge_color(h["image"])}"' if is_photo(h["image"]) else "").replace(' fetchpriority="high"', ' fetchpriority="high"' if k == 0 else ' decoding="async"')
         for k, h in enumerate(HERO))
     chips = "".join(
         f'<div class="hero__chips{" is-active" if k == 0 else ""}" aria-hidden="{"false" if k == 0 else "true"}">'
@@ -283,7 +283,7 @@ def home():
       <article class="chapter{' chapter--flip' if flip else ''}">
         <div class="chapter__media">
           <div class="chapter__photo{' chapter__photo--wide' if wide else ''}" data-reveal="clip">{img(photo, p, photo_alt, extra='' if wide else ' data-parallax="0.14"')}</div>
-          <div class="chapter__tile" data-reveal="scale" style="--d:.25s">{img(tile, p, tile_alt)}</div>
+          <div class="chapter__tile" data-reveal="scale" style="--d:.25s{'; background:' + edge_color(tile) if is_photo(tile) else ''}">{img(tile, p, tile_alt, "is-photo" if is_photo(tile) else "")}</div>
         </div>
         <div class="chapter__body">
           <span class="chapter__num" aria-hidden="true">{n}</span>
@@ -318,7 +318,7 @@ def home():
                 [("40&ndash;95<small>&deg;C</small>", "PID heating range"), ("6", "Preset brewing modes"), ("1:16", "Default brew ratio")],
                 ["Automatic water supply &mdash; connect a water line for non-stop service", "Touch panel plus Bluetooth mini-program control", "Magnetic drip tray and conical filter cup for easy cleaning"],
                 "orbit", PRODUCTS[2]["full"]) +
-        chapter("04", True, "po6-dark", "Bincoo Harmony triple-head commercial pour-over machine", "po6-main", "Harmony commercial pour-over machine",
+        chapter("04", True, "po6-dark", "Bincoo Harmony triple-head commercial pour-over machine", "po6-front", "Harmony commercial pour-over machine",
                 "Harmony &middot; Commercial Pour-Over", "Pour-over at <em>caf&eacute; speed.</em>",
                 "Three brew heads, three dedicated touch screens and PID control from 80&ndash;96&nbsp;&deg;C let Harmony brew three specialty pour-overs at once &mdash; up to 90 cups an hour, each one to the same recipe.",
                 [("3", "Independent brew heads"), ("75&ndash;90", "Cups per hour"), ("48", "Saved recipes")],
@@ -656,10 +656,10 @@ PDP = {
  "harmony": dict(
     desc="Bincoo Harmony triple-head commercial automatic pour-over coffee machine: three brew heads with independent touch screens, PID 80–96 °C, up to 6 pour stages, 48 recipes and 75–90 cups per hour. Available through authorized distributors in MENA.",
     lead="A commercial automatic pour-over machine with three independent brew heads, three colour touch screens and programmable multi-stage pouring &mdash; built for specialty caf&eacute;s, roasteries, hotels, restaurants and high-volume coffee service.",
-    thumbs=[("po6-main", "contain", "Harmony commercial pour-over machine"), ("po6-angle", "photo", "Harmony from a three-quarter angle"),
-            ("po6-front", "photo", "Harmony front view with three touch screens"), ("po6-dark", "photo", "Harmony on a dark background"),
+    thumbs=[("po6-front", "photo", "Harmony front view with three touch screens"), ("po6-angle", "photo", "Harmony from a three-quarter angle"),
+            ("po6-dark", "photo", "Harmony on a dark background"),
             ("po6-rear", "photo", "Harmony rear view")],
-    colors=[("Black", "po6-main")],
+    colors=[("Black", "po6-front")],
     configs=None,
     keyfacts=[("Brew heads", "3, independently controlled"), ("Capacity", "75&ndash;90 cups / hour"), ("Temperature", "PID, 80&ndash;96 &deg;C (&plusmn;1 &deg;C)"), ("Recipes", "Up to 48 (16 per head)")],
     features=[
@@ -732,6 +732,15 @@ PDP = {
              ("Four-to-six", "15 g &middot; 92 &deg;C &middot; 1:16 &middot; 240 ml", "After blooming, the remaining water is divided into four pours.", "High sweetness and body &mdash; for advanced brewers, light to medium roasts.")]),
 }
 
+# Full product photos that carry their own background (shown whole, framed in their edge colour)
+PHOTO_IMAGES = {"po6-front", "po6-angle", "po6-dark", "po6-rear"}
+
+def is_photo(name):
+    return name in PHOTO_IMAGES
+
+def photo_bg(name):
+    return f' style="background:{edge_color(name)}"' if is_photo(name) else ""
+
 def edge_color(name):
     """Average colour of an image's outer border, used to fill around a whole-photo view."""
     from PIL import Image
@@ -800,8 +809,8 @@ def product_page(slug):
       <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><a href="../#collection">Collection</a><span aria-hidden="true">/</span><span aria-current="page">{pr['name']}</span></nav>
       <section class="pdp" data-pdp="{pr['full']}">
         <div class="gallery" data-reveal="fade">
-          <div class="gallery__main">
-            <img src="{p}assets/img/products/{first[0]}.webp" alt="{first[2]}" fetchpriority="high"{' class="is-cover"' if first[1] == 'cover' else ''}>
+          <div class="gallery__main"{photo_bg(first[0]) if first[1] == 'photo' else ''}>
+            <img src="{p}assets/img/products/{first[0]}.webp" alt="{first[2]}" fetchpriority="high"{' class="is-cover"' if first[1] == 'cover' else (' class="is-photo"' if first[1] == 'photo' else '')}>
             <button class="gallery__zoom" type="button" aria-label="View full screen">{I['zoom']}</button>
           </div>
           <div class="gallery__thumbs">{thumbs}</div>

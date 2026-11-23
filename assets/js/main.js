@@ -112,6 +112,9 @@ const CONFIG = {
       slides[prev].classList.add("is-leaving");
       setTimeout(() => slides[prev].classList.remove("is-leaving"), 1300);
       slides[index].classList.add("is-active");
+      // Photo slides carry their own background colour; the tile takes it on while they show
+      const tile = $(".hero__tile", heroVisual);
+      if (tile) tile.style.background = slides[index].dataset.bg || "";
       chipSets.forEach((c, i) => {
         c.classList.toggle("is-active", i === index);
         c.setAttribute("aria-hidden", String(i !== index));

@@ -690,6 +690,10 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .feature__media--wide img, .chapter__photo--wide img { height: 100%; }
 .gallery__main { transition: background-color .5s var(--ease); }
 .gallery__main img.is-photo { object-fit: contain; padding: 0; mix-blend-mode: normal; }
+.p-card__media img.is-photo { mix-blend-mode: normal; padding: 4%; }
+.chapter__tile img.is-photo { mix-blend-mode: normal; padding: 4%; }
+.hero__slide--photo { mix-blend-mode: normal; inset: 6% 3%; width: 94%; height: 88%; }
+.hero__tile { transition: background-color .9s var(--ease); }
 .feature__body { display: grid; gap: 20px; }
 .feature__n { font-family: var(--font-display); font-style: italic; color: var(--accent); font-size: 1.1rem; }
 
