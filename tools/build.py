@@ -1,7 +1,7 @@
 # Generates the static HTML pages for Bincoo MENA from one shared template.
 # Usage (from the repo root):  python tools/build.py [asset-version]
 # Edit texts, products or contact details here, then re-run to regenerate every page.
-import json, os, sys
+import json, os, re, sys
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://bincoo-mena.com"
@@ -85,6 +85,31 @@ FAQS = [("Can individuals buy from Bincoo MENA?", "No. Bincoo MENA operates excl
         ("Are there shipping fees?", "There is no online checkout on this site, so no shipping fees are charged here. Delivery is arranged by the authorized distributor in your market."),
         ("Which versions are available?", "The Lucid, Orchestra and Orbit come in black or white. The Harmony commercial machine comes in black."),
         ("What power supply do the machines use?", "The Lucid and Orchestra run on 220&nbsp;V / 50&nbsp;Hz. The Harmony needs 220&ndash;240&nbsp;V, 50&ndash;60&nbsp;Hz on a dedicated 16&nbsp;A circuit (3400&nbsp;W). Your distributor can confirm the requirements for your market.")]
+
+COUNTRY_GROUPS = [
+ ("Middle East & North Africa", ["Algeria", "Bahrain", "Egypt", "Iraq", "Jordan", "Kuwait", "Lebanon", "Libya", "Mauritania", "Morocco", "Oman", "Palestine", "Qatar", "Saudi Arabia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen"]),
+ ("Türkiye & Caucasus", ["Türkiye", "Armenia", "Azerbaijan", "Georgia"]),
+ ("Europe", ["Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal", "Romania", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Ukraine", "United Kingdom"]),
+ ("Russia & Central Asia", ["Russia", "Kazakhstan", "Kyrgyzstan", "Mongolia", "Tajikistan", "Turkmenistan", "Uzbekistan"]),
+ ("East Asia", ["China", "Hong Kong", "Japan", "Macau", "South Korea", "Taiwan"]),
+ ("South & Southeast Asia", ["Afghanistan", "Bangladesh", "Bhutan", "Brunei", "Cambodia", "India", "Indonesia", "Laos", "Malaysia", "Maldives", "Myanmar", "Nepal", "Pakistan", "Philippines", "Singapore", "Sri Lanka", "Thailand", "Vietnam"]),
+ ("Africa", ["Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cameroon", "Cape Verde", "Central African Republic", "Chad", "Comoros", "Congo", "Côte d’Ivoire", "DR Congo", "Djibouti", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Madagascar", "Malawi", "Mali", "Mauritius", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Tanzania", "Togo", "Uganda", "Zambia", "Zimbabwe"]),
+ ("Americas", ["United States", "Canada", "Mexico", "Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Costa Rica", "Dominican Republic", "Ecuador", "El Salvador", "Guatemala", "Honduras", "Jamaica", "Panama", "Paraguay", "Peru", "Puerto Rico", "Trinidad and Tobago", "Uruguay", "Venezuela"]),
+ ("Oceania", ["Australia", "Fiji", "New Zealand", "Papua New Guinea"]),
+ ("Other", ["Other"]),
+]
+
+def country_options():
+    return "".join(f'<optgroup label="{g.replace("&", "&amp;")}">' + "".join(f"<option>{c}</option>" for c in cs) + "</optgroup>" for g, cs in COUNTRY_GROUPS)
+
+def write_chat_countries():
+    """Keep the chat widget's country list identical to the site form's."""
+    path = os.path.join(SITE, "assets", "js", "chat.js")
+    js = open(path, encoding="utf-8").read()
+    block = "const COUNTRY_GROUPS = " + json.dumps(COUNTRY_GROUPS, ensure_ascii=False) + ";"
+    js = re.sub(r"/\* COUNTRIES:START \*/.*?/\* COUNTRIES:END \*/", "/* COUNTRIES:START */ " + block.replace("\\", "\\\\") + " /* COUNTRIES:END */", js, flags=re.S)
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(js)
 
 def img(name, p="", alt="", cls="", lazy=True, extra=""):
     c = f' class="{cls}"' if cls else ""
@@ -261,8 +286,7 @@ def home():
     marquee_items = ["Coffee, <em>reimagined</em>", "Smart machines", "Exceptional brewing", "Exclusive by KUVANI", "Middle East &amp; North Africa", "For business <em>only</em>"]
     group = "".join(f'<span class="marquee__item">{t}</span>{I["star"]}' for t in marquee_items)
     cards = "".join(card(pr, i + 1) for i, pr in enumerate(PRODUCTS))
-    countries = ["Algeria", "Bahrain", "Egypt", "Iraq", "Jordan", "Kuwait", "Lebanon", "Libya", "Morocco", "Oman", "Palestine", "Qatar", "Saudi Arabia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen", "Other"]
-    copts = "".join(f"<option>{c}</option>" for c in countries)
+    copts = country_options()
 
     # Hero slider: one slide per machine, each with its own three spec chips
     slides = "".join(
@@ -952,3 +976,4 @@ for pr in PRODUCTS:
     write(f"products/{pr['slug']}.html", product_page(pr["slug"]))
 write("404.html", notfound())
 write("api/knowledge.md", knowledge())
+write_chat_countries()
