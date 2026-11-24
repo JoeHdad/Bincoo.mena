@@ -355,7 +355,7 @@ def home():
                ("po-life-counter", "Orchestra", "Counter"), ("cp-life-white", "Orbit", "Café bar"),
                ("s2-life-portafilter", "Lucid", "58 mm"), ("po-life-beans", "Orchestra", "Fresh ground"),
                ("po6-angle", "Harmony", "Commercial"), ("po6-dark", "Harmony", "Triple-head")]
-    hitems = "".join(f'<figure class="hscroll__item">{img(n, p, f"{a} — {b}")}<figcaption>{a}<span>{b}</span></figcaption></figure>' for n, a, b in gallery)
+    hitems = "".join(f'<figure class="hscroll__item{" hscroll__item--wide" if "wide" in feature_shape(n, 0) else ""}">{img(n, p, f"{a} — {b}")}<figcaption>{a}<span>{b}</span></figcaption></figure>' for n, a, b in gallery)
 
     segs = [("cup", "Caf&eacute;s &amp; roasteries", "Consistent espresso and pour-over that keep pace with a busy bar, shift after shift."),
             ("bell", "Hotels &amp; restaurants", "Barista-quality coffee for lobbies, suites, breakfast service and fine dining."),

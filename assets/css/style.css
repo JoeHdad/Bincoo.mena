@@ -449,9 +449,12 @@ p { margin: 0; }
 /* ---------- Horizontal gallery ---------- */
 .hscroll { position: relative; }
 .hscroll__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 40px; }
-.hscroll__track { display: flex; gap: clamp(16px, 2vw, 28px); padding-inline: var(--gutter); will-change: transform; }
+.hscroll__track { display: flex; align-items: flex-start; gap: clamp(16px, 2vw, 28px); padding-inline: var(--gutter); will-change: transform; }
 .hscroll__item { flex: none; width: clamp(260px, 30vw, 440px); aspect-ratio: 3 / 4; border-radius: var(--radius-lg); overflow: hidden; position: relative; background: var(--bg-2); }
 .hscroll__item:nth-child(even) { margin-top: 60px; }
+/* Landscape photos get a card twice as wide at the same height (3:2), so nothing is cropped */
+.hscroll__item--wide { width: calc(clamp(260px, 30vw, 440px) * 2); aspect-ratio: 3 / 2; }
+.hscroll--static .hscroll__item--wide { width: min(calc(clamp(260px, 30vw, 440px) * 2), 88vw); }
 .hscroll__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
 .hscroll__item:hover img { transform: scale(1.05); }
 .hscroll__item figcaption { position: absolute; left: 16px; bottom: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 14px; background: rgba(255,255,255,.85); color: #15130F; backdrop-filter: blur(10px); font-size: .85rem; font-weight: 600; }
